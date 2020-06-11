@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/alert_window.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <!--文章排版-->
+    <link rel="stylesheet" href="./css/typo.css">
+    <!--动态效果-->
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./lib/prism/prism.css">
+    <link rel="stylesheet" href="./lib/tocbot/tocbot.css">
+    <link rel="stylesheet" href="./css/me.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"
+          src="./lib/live2d-widget/waifu.css">
+</head>
+<body>
+<!--导航-->
+<nav class="ui m-bg attached  segment m-padding-tb-mini m-shadow-small animated fadeInDown"
+     style="z-index: 999!important;">
+    <div id="tp-weather-widget" class="ui animated fadeInUp  m-left"
+         style=" position: fixed; z-index: 999!important;"></div>
+    <div class="ui container ">
+        <div class="ui secondary  stackable menu ">
+            <a href="/" class="item">
+                <!-- <img class="ui image" src="http://cdn.sakurac.cn/sakura.png"
+                     style="width: 60px;height: 60px;padding-top: 4px"> -->
+                <h1 class="ui header item" style="color: #00c4ff">亖狼何必装羴°</h1>
+            </a>&nbsp;
+            <a href="index.html" class="item m-pink m-item m-mobile-hide "><i
+                        class="home icon m-pink"></i>首页</a>
+            <a href="types.html" class=" m-pink m-item item  m-mobile-hide"><i class="idea icon m-pink"></i>分类</a>
+            <a href="tags.html" class=" m-pink m-item item m-mobile-hide"><i class="tags icon m-pink"></i>标签</a>
+            <a href="archives.html" class="m-pink m-item  item m-mobile-hide"><i class="clock icon m-pink"></i>归档</a>
+            <a href="#" class=" item m-pink m-item  m-mobile-hide"><i class="info icon m-pink"></i>关于我</a>
+            <a href="/messages" target="_blank" class=" item m-pink m-item  m-mobile-hide"><i
+                        class="mail icon m-pink"></i>留言板</a>
+            <a href="friends.html" class=" item m-pink m-item  m-mobile-hide"><i class="linkify icon m-pink"></i>友链</a>
+
+            <div class="right m-item item m-mobile-hide">
+                <form name="search" action="/search" method="post">
+                    <div class="ui icon  transparent  input">
+                        <input type="text" value="" name="query" placeholder="搜索博客..." class="text"
+                               style="color:#2E64FE">
+                        <i onclick="document.forms['search'].submit()" class="search link icon m-pink"></i>
+                    </div>
+                </form>
+            </div>
+            <div class="right m-item m-mobile-hide item">
+                <div class="myShowStyle">
+                    <a href="/qq/oauth" style="width:80px; text-align:center"><i class=" m-pink qq icon"></i><font
+                                style="vertical-align: inherit;"><font class="m-pink"
+                                                                       style="vertical-align: inherit;">QQ登录</font></font></a>
+                    <span class="m-pink">/</span>
+                    <a href="/github/oauth" style="width:80px; text-align:center"><i
+                                class="m-pink github icon"></i><font style="vertical-align: inherit;"><font
+                                    class="m-pink"
+                                    style="vertical-align: inherit;">GitHub登录</font></font></a>
+                    <a href="/admin/blogs" style="width:80px; text-align:center"><i class="m-pink heart icon"></i><font
+                                style="vertical-align: inherit;"><font class="m-pink"
+                                                                       style="vertical-align: inherit;"></font></font></a>
+
+                </div>
+                <div class="ui dropdown item myHideStyle">
+                    <div class="text">
+                        <img style="width: 28px!important;height: 28px!important;" class="ui avatar image"
+                             src="">
+                        <span class="m-pink"></span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                </div>
+
+            </div>
+            <!--            <a th:href="@{}" target="_blank" style="width:80px; text-align:center"><i class="heart icon m-pink"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></a>-->
+        </div>
+    </div>
+    <a href="#" class="ui big menu toggle m-pink icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+
+
+<div id="waypoint" class="m-container-large m-padding-tb-big animated fadeInUp">
+    <div class="ui container">
+        <!--留言区域-->
+        <div id="messageDiv" class="ui bottom attached segment messageDiv animated fadeInUpBig" style="animate-duration: 1s">
+            <h2 class="ui dividing teal header">留言</h2>
+            <div id="message-form" class="ui teal form">
+                <!--留言板，可编辑div-->
+                <div  id="commentEditor" class="fields error" contenteditable="true" data-placeholder="请输入留言信息..."></div>
+
+                <div class="fields">
+                    <!--表情按钮-->
+                    <div class="field m-mobile-wide m-margin-bottom-small" data-tooltip="表情未加载完全或点击无响应可刷新页面重试">
+                        <button id="emojiBtn" type="button" class="ui yellow button m-mobile-wide"><i class="large smile outline icon"></i>表情</button>
+                    </div>
+
+                    <div class="field m-mobile-wide m-margin-bottom-small">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" id="nicknameInput" name="nickname" placeholder="姓名" value="">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-wide m-margin-bottom-small">
+                        <div class="ui left icon input">
+                            <i class="mail icon"></i>
+                            <input type="text" id="emailInput" name="email" placeholder="邮箱" value="">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-wide m-margin-bottom-small" data-tooltip="点击选择是否开启留言回复通知">
+                        <div id="open-mail" name="open-mail" class="ui toggle checkbox">
+                            <div style="height:10px"> </div>
+                            <input type="checkbox" tabindex="0" class="hidden" />
+                            <label>回复通知</label>
+                        </div>
+                    </div>
+                    <div class="field  m-margin-bottom-small m-mobile-wide">
+                        <button id="commentpost-btn" type="button" class="ui teal button m-mobile-wide"><i class="large edit icon"></i>发布</button>
+                    </div>
+                    <input type="hidden" name="loginType" value="">
+                    <div class="field  m-margin-bottom-small m-mobile-wide myShowStyle" data-tooltip="点击绑定邮箱">
+                        <button id="bindEmail" type="button" class="ui green  button m-mobile-wide"><i class="large envelope outline  icon"></i>邮箱绑定</button>
+                    </div>
+
+                    <div class="field  m-margin-bottom-small m-mobile-wide" data-tooltip="手机验证码发送demo，仅做测试使用不存储手机号！">
+                        <button id="CodeDemo" type="button" class="ui violet  button m-mobile-wide"><i class="large mobile  icon"></i>demo</button>
+                    </div>
+                </div>
+                <div class="ui error message"></div>
+            </div>
+            <input type="hidden" name="parentMessage.id" value="-1">
+            <!--留言列表-->
+            <div id="message-container" class="ui teal segment" >
+                <div>
+                    <div class="ui threaded comments" style="max-width: 100%;">
+
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="http://xiongsihao.com/images/avatar.png">
+                            </a>
+                            <div class="content">
+                                <a class="author">
+                                    <span>渊</span>
+
+
+                                    <span class="ui mini basic touristComment left pointing label m-padded-mini">游客</span>
+
+                                </a>
+                                <div class="metadata">
+                                    <span class="date">2020-06-10 10:59:54</span>
+
+                                </div>
+                                <div id="messageText" class="text">老哥，可以加下qq嘛，想问你问题</div>
+
+                                <div class="actions">
+                                    <a class="reply" style="color: #1db4ff" data-messageid="286" data-messagenickname="渊" onclick="reply(this)">回复</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="http://xiongsihao.com/images/avatar.png">
+                            </a>
+                            <div class="content">
+                                <a class="author">
+                                    <span>纷飞</span>
+
+
+                                    <span class="ui mini basic touristComment left pointing label m-padded-mini">游客</span>
+
+                                </a>
+                                <div class="metadata">
+                                    <span class="date">2020-06-09 09:04:41</span>
+
+                                </div>
+                                <div id="messageText" class="text">博主,这个天气怎样修改位置?</div>
+
+                                <div class="actions">
+                                    <a class="reply" style="color: #1db4ff" data-messageid="285" data-messagenickname="纷飞" onclick="reply(this)">回复</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="http://xiongsihao.com/images/avatar.png">
+                            </a>
+                            <div class="content">
+                                <a class="author">
+                                    <span>00000000</span>
+
+
+                                    <span class="ui mini basic touristComment left pointing label m-padded-mini">游客</span>
+
+                                </a>
+                                <div class="metadata">
+                                    <span class="date">2020-06-08 22:34:08</span>
+
+                                </div>
+                                <div id="messageText" class="text">.<div><br></div></div>
+
+                                <div class="actions">
+                                    <a class="reply" style="color: #1db4ff" data-messageid="284" data-messagenickname="00000000" onclick="reply(this)">回复</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="http://xiongsihao.com/images/avatar.png">
+                            </a>
+                            <div class="content">
+                                <a class="author">
+                                    <span>我是我</span>
+
+
+                                    <span class="ui mini basic touristComment left pointing label m-padded-mini">游客</span>
+
+                                </a>
+                                <div class="metadata">
+                                    <span class="date">2020-06-06 20:42:50</span>
+                                    <div class="actions">
+                                        <a class="reply" style="color: #1db4ff" data-messageid="279" data-messagenickname="我是我" onclick="reply(this)">回复ta</a>
+                                    </div>
+                                </div>
+                                <div id="messageText" class="text">你好，請問一下这个有发布和草稿两个状态，怎么实现前台只能拿到发布状态的博客啊</div>
+
+
+                            </div>
+
+                            <div class="comments">
+                                <div class="comment">
+                                    <a class="avatar">
+                                        <img src="http://thirdqq.qlogo.cn/g?b=oidb&amp;k=FiaIS56ZqN6CcEsNsuY3jQw&amp;s=640&amp;t=1556116622">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author" >
+                                            <span>ㅤㅤ听说。</span>
+                                            <div class="ui mini basic adminComment left pointing label m-padded-mini">博主</div>
+
+
+
+                                            &nbsp;<span class="m-teal">@ 我是我</span>
+                                        </a>
+                                        <div class="metadata">
+                                            <span class="date">2020-06-06 22:23:38</span>
+                                        </div>
+                                        <div id="replyCommentText" class="text">SQL语句加个筛选条件</div>
+                                        <div class="actions">
+                                            <a class="reply" style="color: #1db4ff" data-messageid="280" data-messagenickname="ㅤㅤ听说。" onclick="reply(this)">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <a class="avatar">
+                                        <img src="http://xiongsihao.com/images/avatar.png">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author" >
+                                            <span>我是我</span>
+
+
+                                            <span class="ui mini basic touristComment left pointing label m-padded-mini">游客</span>
+
+                                            &nbsp;<span class="m-teal">@ ㅤㅤ听说。</span>
+                                        </a>
+                                        <div class="metadata">
+                                            <span class="date">2020-06-07 00:02:49</span>
+                                        </div>
+                                        <div id="replyCommentText" class="text">首页的显示正常了，可是侧面的标签，还有分类标签页面，显示还是不对的，参考了一下你的源码，还是没有思考出来<img width="30" height="30" class="emoji_icon" src="/images/emoji/aru/1.png"></div>
+                                        <div class="actions">
+                                            <a class="reply" style="color: #1db4ff" data-messageid="281" data-messagenickname="我是我" onclick="reply(this)">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <a class="avatar">
+                                        <img src="http://thirdqq.qlogo.cn/g?b=oidb&amp;k=FiaIS56ZqN6CcEsNsuY3jQw&amp;s=640&amp;t=1556116622">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author" >
+                                            <span>ㅤㅤ听说。</span>
+                                            <div class="ui mini basic adminComment left pointing label m-padded-mini">博主</div>
+
+
+
+                                            &nbsp;<span class="m-teal">@ 我是我</span>
+                                        </a>
+                                        <div class="metadata">
+                                            <span class="date">2020-06-07 11:59:16</span>
+                                        </div>
+                                        <div id="replyCommentText" class="text">以前留言回复过这个问题 翻一下<img width="30" height="30" class="emoji_icon" src="/images/emoji/tv_小电视/tv_doge.png"></div>
+                                        <div class="actions">
+                                            <a class="reply" style="color: #1db4ff" data-messageid="283" data-messagenickname="ㅤㅤ听说。" onclick="reply(this)">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="http://xiongsihao.com/images/avatar.png">
+                            </a>
+                            <div class="content">
+                                <a class="author">
+                                    <span>lartecy</span>
+
+
+                                    <span class="ui mini basic touristComment left pointing label m-padded-mini">游客</span>
+
+                                </a>
+                                <div class="metadata">
+                                    <span class="date">2020-06-05 22:17:47</span>
+                                    <div class="actions">
+                                        <a class="reply" style="color: #1db4ff" data-messageid="276" data-messagenickname="lartecy" onclick="reply(this)">回复ta</a>
+                                    </div>
+                                </div>
+                                <div id="messageText" class="text">博主你好，我在github 上下载了你的这个博客项目，想在本地运行试试，但是maven依赖一大片爆红，maven的插件也显示不正常，用IDEA的mavenhelper插件看了一下发现有几个maven依赖冲突，可以说一下您的部署环境吗，包括maven的版本</div>
+
+
+                            </div>
+
+                            <div class="comments">
+                                <div class="comment">
+                                    <a class="avatar">
+                                        <img src="http://thirdqq.qlogo.cn/g?b=oidb&amp;k=FiaIS56ZqN6CcEsNsuY3jQw&amp;s=640&amp;t=1556116622">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author" >
+                                            <span>ㅤㅤ听说。</span>
+                                            <div class="ui mini basic adminComment left pointing label m-padded-mini">博主</div>
+
+
+
+                                            &nbsp;<span class="m-teal">@ lartecy</span>
+                                        </a>
+                                        <div class="metadata">
+                                            <span class="date">2020-06-05 22:51:35</span>
+                                        </div>
+                                        <div id="replyCommentText" class="text">我的maven版本是3.6的，如果你实在部署不了，加一下我 我可以远程帮你看看</div>
+                                        <div class="actions">
+                                            <a class="reply" style="color: #1db4ff" data-messageid="277" data-messagenickname="ㅤㅤ听说。" onclick="reply(this)">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="http://xiongsihao.com/images/avatar.png">
+                            </a>
+                            <div class="content">
+                                <a class="author">
+                                    <span>牛肉丸</span>
+
+
+                                    <span class="ui mini basic touristComment left pointing label m-padded-mini">游客</span>
+
+                                </a>
+                                <div class="metadata">
+                                    <span class="date">2020-06-05 18:27:58</span>
+                                    <div class="actions">
+                                        <a class="reply" style="color: #1db4ff" data-messageid="275" data-messagenickname="牛肉丸" onclick="reply(this)">回复ta</a>
+                                    </div>
+                                </div>
+                                <div id="messageText" class="text">这种背景可以透过看到，上面那些div半透明但是文字不半透明的效果怎么搞的？</div>
+
+
+                            </div>
+
+                            <div class="comments">
+                                <div class="comment">
+                                    <a class="avatar">
+                                        <img src="http://thirdqq.qlogo.cn/g?b=oidb&amp;k=FiaIS56ZqN6CcEsNsuY3jQw&amp;s=640&amp;t=1556116622">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author" >
+                                            <span>ㅤㅤ听说。</span>
+                                            <div class="ui mini basic adminComment left pointing label m-padded-mini">博主</div>
+
+
+
+                                            &nbsp;<span class="m-teal">@ 牛肉丸</span>
+                                        </a>
+                                        <div class="metadata">
+                                            <span class="date">2020-06-05 22:52:15</span>
+                                        </div>
+                                        <div id="replyCommentText" class="text">我是直接在div里加的全局透明，没有单独弄字体不透明</div>
+                                        <div class="actions">
+                                            <a class="reply" style="color: #1db4ff" data-messageid="278" data-messagenickname="ㅤㅤ听说。" onclick="reply(this)">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!--分页组件-->
+                    <div class="ui center aligned segment">
+                        <div class="ui pagination menu">
+                            <a class="item active teal" href="/Messages?page=1">
+                                首页
+                            </a>
+
+                            <a class="item">
+                                当前第<h3 class="ui orange header m-inline-block m-text-thin">1</h3>页
+                            </a>
+                            <a class="item" href="/Messages?page=2">
+                                下一页
+                            </a>
+                            <a class="item" href="/Messages?page=18">
+                                尾页
+                            </a>
+                            <a class="item">
+                                共<h3 class="ui red header m-inline-block m-text-thin">18</h3>页
+                            </a>
+                            <a class="item">
+                                共<h3 class="ui red header m-inline-block m-text-thin">216</h3>条
+                            </a>
+                            <form name="pageForm" class="right item" action="/Messages" method="get">
+                                <div class="ui right labeled input">
+                                    <div class="ui basic label">Go</div>
+                                    <input type="text" name="page" placeholder="页码..."
+                                           style="width: 80px;">
+                                    <div class="ui basic label">页</div>
+                                    <button class="ui icon button"><i onclick="document.forms[('page'-1)].submit()"
+                                                                      class="right arrow icon"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+
+<!--  底部-->
+<footer class="ui  vertical segment m-padding-tb-massive">
+    <!--音乐-->
+    <!--    <script>-->
+    <!--        var meting_api='http://api.mizore.cn/meting/api.php?server=netease&type=playlist&id=733028237';-->
+    <!--    </script>-->
+    <!--    <div id="player" class="aplayer aplayer-withlist aplayer-fixed" data-id="733028237" data-server="netease" data-type="playlist" data-order="random" data-fixed="true" data-listfolded="true" data-theme="#2D8CF0"></div>-->
+    <!-- require APlayer -->
+    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>-->
+    <!--    &lt;!&ndash; require MetingJS &ndash;&gt;-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>-->
+    <!--    -->
+    <!--    <meting-js-->
+    <!--            server="netease"-->
+    <!--            type="playlist"-->
+    <!--            id="733028237">-->
+    <!--    </meting-js>-->
+    <!--    音乐-->
+
+    <div class="aplayer" data-id="4975069134" data-server="netease" data-type="playlist" data-order="random"
+         data-fixed="true" data-listfolded="true" data-theme="#2D8CF0"></div>
+    <!--  点击特效-->
+    <canvas width="1777" height="841"
+            style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+    <div class="ui center aligned container">
+        <div class="ui  inverted stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="./images/wx.png" class=" ui rounded image" alt="" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui  header m-text-spaced m-text-thin">最新的博客</h4>
+                <div id="newblog-container">
+                    <div class="ui  link list">
+                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                        <a href="#" class="item m-text-thin">用户故事（User Story）</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <h4 class="ui  header m-text-spaced m-text-thin">联系我</h4>
+                <div class="ui  link list">
+                    <a href="javascript:void(0);" class="item">Email:chenpingping1234@qq.com</a>
+                    <a href="#" class="item">QQ:1024297276</a>
+                </div>
+            </div>
+
+            <div class="five wide column">
+                <h4 class="ui  header m-text-spaced m-text-thin">博客</h4>
+                <p class="m-opacity-mini">
+                    本博客是自己通过代码构建的。前端html，后端java技术。对这些技术有兴趣的朋友可以联系我，我们一起学习进步。
+                </p>
+            </div>
+
+        </div>
+
+        <div class="ui  section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - <span>2020</span> &nbsp;CPP &nbsp; Designed by Chen pingping</p>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny"><a href="http://icp.chinaz.com/info?q=sakurac.cn">
+                桂ICP备20002883号-1</a></p>
+        <div style="width:300px;margin:0 auto; padding:1px 0; ">
+            <!--            <a target="_blank" href="http://www.beian.gov.cn" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img th:src="@{/images/1.png}" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#ff1c04;">桂公网安备</p></a>-->
+        </div>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date();
+
+            function createtime() {
+                var grt = new Date("04/01/2020 00:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+                now.setTime(now.getTime() + 250);
+                days = (now - grt) / 1000 / 60 / 60 / 24;
+                dnum = Math.floor(days);
+                hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                hnum = Math.floor(hours);
+                if (String(hnum).length == 1) {
+                    hnum = "0" + hnum;
+                }
+                minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes);
+                if (String(mnum).length == 1) {
+                    mnum = "0" + mnum;
+                }
+                seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds);
+                if (String(snum).length == 1) {
+                    snum = "0" + snum;
+                }
+                document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+            }
+
+            setInterval("createtime()", 500);
+        </script>
+
+
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+<script src="./lib/prism/prism.js"></script>
+<script src="./lib/tocbot/tocbot.min.js"></script>
+<script src="./lib/qrcode/qrcode.js"></script>
+<script src="./lib/waypoints/jquery.waypoints.js"></script>
+<script src="./lib/editormd/editormd.min.js"></script>
+<script src="./js/weather.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/common.js"></script>
+</body>
+</html>

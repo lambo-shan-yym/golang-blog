@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/alert_window.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <!--文章排版-->
+    <link rel="stylesheet" href="./css/typo.css">
+    <!--动态效果-->
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./lib/prism/prism.css">
+    <link rel="stylesheet" href="./lib/tocbot/tocbot.css">
+    <link rel="stylesheet" href="./css/me.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"
+          src="./lib/live2d-widget/waifu.css">
+</head>
+<body>
+<!--导航-->
+<div class="headerPage"></div>
+
+<!--中间内容-->
+<a href="#" class="cd-top faa-float animated cd-is-visible cd-fade-out" style="top: -260px;"></a>
+<div id="waypoint" class="m-container-big m-padding-tb-big animated fadeInUp">
+
+    <div class="ui container">
+
+        <div class="ui stackable grid">
+            <!--左边博客列表-->
+            <div class="eleven wide column">
+                <!--header-->
+                <div class="ui top attached m-bg segment">
+                    <div class="ui middle aligned two column grid m-top-color">
+                        <div class="column">
+                            <h3 class="m-pink">博客</h3>
+                        </div>
+                        <div class="right aligned column">
+                            共 <h3 class="ui m-pink header m-inline-block m-text-thin">15</h3>&nbsp;篇
+                        </div>
+                    </div>
+                </div>
+                <!--内容-->
+                <div class="ui  attached padding segment m-bg ">
+                    <div class="ui padded vertical segment  m-padding-tb-large m-mobile-clear">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header"><a href="blog.html" target="_blank"
+                                                         class="m-black">SpringCloud五大核心组件</a></h3>
+                                <p class="m-text">服务发现——Netflix Eureka</br>
+                                    客服端负载均衡——Netflix Ribbon</br>
+                                    断路器——Netflix Hystrix</br>
+                                    服务消费者——Netflix Feign</br>
+                                    服务网关——Netflix Zuul
+                                </p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini horizontal link list">
+                                            <div class="item">
+                                                <img src="./images/admin_header.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="/about" style="color: #2E64FE!important;"
+                                                                        class="header m-pink">管理员</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="/archives"><i
+                                                            class="calendar icon m-pink"></i><span>2020-06-07</span></a>
+
+                                                <!--                                          <i class="calendar icon m-pink"></i><a href="javascript:void(0);">2019-11-20</a>-->
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i> <span>109</span>
+                                            </div>
+                                            <!--                                              <div class="item">-->
+                                            <!--                                                  <a th:href="@{/blog/{id}#comment-form(id=${blog.id})}"><i class="comment icon m-pink"></i> <span th:text="${blog.views}">2342</span></a>-->
+                                            <!--                                              </div>-->
+
+                                            <!--<div class="item">
+                                                <i class="tag icon m-pink"></i>
+                                                <a th:text="${blog.typeName}"  href="#">html</a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="/types/8" target="_blank"
+                                           class="m-pink-label m-padding-tiny m-text-thin">Java框架</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ui five wide column"><!--图片-->
+                                <a href="/blog/1591456383956" target="_blank">
+                                    <img src="http://cdn.sakurac.cn/blog15.jpg"
+                                         alt="" class="ui m-image rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui padded vertical segment  m-padding-tb-large m-mobile-clear">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header"><a href="blog.html" target="_blank"
+                                                         class="m-black">SpringCloud简介</a></h3>
+                                <p class="m-text"> 1.了解系统架构的演变</br>
+
+                                    2.什么是SpringCloud</br>
+
+                                </p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini horizontal link list">
+                                            <div class="item">
+                                                <img src="./images/admin_header.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="/about" style="color: #2E64FE!important;"
+                                                                        class="header m-pink">管理员</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="/archives"><i
+                                                            class="calendar icon m-pink"></i><span>2020-06-03</span></a>
+
+                                                <!--                                          <i class="calendar icon m-pink"></i><a href="javascript:void(0);">2019-11-20</a>-->
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i> <span>109</span>
+                                            </div>
+                                            <!--                                              <div class="item">-->
+                                            <!--                                                  <a th:href="@{/blog/{id}#comment-form(id=${blog.id})}"><i class="comment icon m-pink"></i> <span th:text="${blog.views}">2342</span></a>-->
+                                            <!--                                              </div>-->
+
+                                            <!--<div class="item">
+                                                <i class="tag icon m-pink"></i>
+                                                <a th:text="${blog.typeName}"  href="#">html</a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="/types/8" target="_blank"
+                                           class="m-pink-label m-padding-tiny m-text-thin">Java框架</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ui five wide column"><!--图片-->
+                                <a href="/blog/1591174829951" target="_blank">
+                                    <img src="http://cdn.sakurac.cn/blog13.jpg"
+                                         alt="" class="ui m-image rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui padded vertical segment  m-padding-tb-large m-mobile-clear">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header"><a href="/blog/1590902734277" target="_blank"
+                                                         class="m-black">Java远程调用接口</a></h3>
+                                <p class="m-text">1.远程调用的方式</br>
+                                    2.Http客户端工具
+                                </p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini horizontal link list">
+                                            <div class="item">
+                                                <img src="./images/admin_header.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="/about" style="color: #2E64FE!important;"
+                                                                        class="header m-pink">管理员</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="/archives"><i
+                                                            class="calendar icon m-pink"></i><span>2020-06-02</span></a>
+
+                                                <!--                                          <i class="calendar icon m-pink"></i><a href="javascript:void(0);">2019-11-20</a>-->
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i> <span>109</span>
+                                            </div>
+                                            <!--                                              <div class="item">-->
+                                            <!--                                                  <a th:href="@{/blog/{id}#comment-form(id=${blog.id})}"><i class="comment icon m-pink"></i> <span th:text="${blog.views}">2342</span></a>-->
+                                            <!--                                              </div>-->
+
+                                            <!--<div class="item">
+                                                <i class="tag icon m-pink"></i>
+                                                <a th:text="${blog.typeName}"  href="#">html</a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="/types/3" target="_blank"
+                                           class="m-pink-label m-padding-tiny m-text-thin">Java</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ui five wide column"><!--图片-->
+                                <a href="/blog/1590902734277" target="_blank">
+                                    <img src="http://cdn.sakurac.cn/blog12.jpg"
+                                         alt="" class="ui m-image rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui padded vertical segment  m-padding-tb-large m-mobile-clear">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header"><a href="/blog/1589616070230" target="_blank"
+                                                         class="m-black">SpringBoot</a></h3>
+                                <p class="m-text">1.了解SpringBoot的作用
+                                    2.掌握java配置的方式
+                                    3.了解SpringBoot自动配置原理
+                                    4.掌握SpringBoot的基本使用
+                                    5.了解Thymeleaf的基本使用
+
+
+                                </p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini horizontal link list">
+                                            <div class="item">
+                                                <img src="./images/admin_header.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="/about" style="color: #2E64FE!important;"
+                                                                        class="header m-pink">管理员</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="/archives"><i
+                                                            class="calendar icon m-pink"></i><span>2020-05-22</span></a>
+
+                                                <!--                                          <i class="calendar icon m-pink"></i><a href="javascript:void(0);">2019-11-20</a>-->
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i> <span>109</span>
+                                            </div>
+                                            <!--                                              <div class="item">-->
+                                            <!--                                                  <a th:href="@{/blog/{id}#comment-form(id=${blog.id})}"><i class="comment icon m-pink"></i> <span th:text="${blog.views}">2342</span></a>-->
+                                            <!--                                              </div>-->
+
+                                            <!--<div class="item">
+                                                <i class="tag icon m-pink"></i>
+                                                <a th:text="${blog.typeName}"  href="#">html</a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="/types/8" target="_blank"
+                                           class="m-pink-label m-padding-tiny m-text-thin">Java框架</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ui five wide column"><!--图片-->
+                                <a href="/blog/1589616070230" target="_blank">
+                                    <img src="http://cdn.sakurac.cn/blog3.jpg"
+                                         alt="" class="ui m-image rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui padded vertical segment  m-padding-tb-large m-mobile-clear">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header"><a href="/blog/1589430277887" target="_blank"
+                                                         class="m-black">Linux云服务器上部署Web项目</a></h3>
+                                <p class="m-text">1.记录在阿里云服务器部署web项目的过程</br>
+                                    2.在linux服务器上配置jdk，mysql，tomcat</br>
+                                    3.远程连接服务器数据库
+                                </p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini horizontal link list">
+                                            <div class="item">
+                                                <img src="./images/admin_header.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="/about" style="color: #2E64FE!important;"
+                                                                        class="header m-pink">管理员</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="/archives"><i
+                                                            class="calendar icon m-pink"></i><span>2020-05-16</span></a>
+
+                                                <!--                                          <i class="calendar icon m-pink"></i><a href="javascript:void(0);">2019-11-20</a>-->
+                                            </div>
+                                            <div class="item">
+                                                <!--<i class="eye icon m-pink"></i>--> <a
+                                                        href="javascript:void(0);"><span>488</span><span
+                                                            class="m-pink"> ℃</span></a>
+                                            </div>
+                                            <!--                                              <div class="item">-->
+                                            <!--                                                  <a th:href="@{/blog/{id}#comment-form(id=${blog.id})}"><i class="comment icon m-pink"></i> <span th:text="${blog.views}">2342</span></a>-->
+                                            <!--                                              </div>-->
+
+                                            <!--<div class="item">
+                                                <i class="tag icon m-pink"></i>
+                                                <a th:text="${blog.typeName}"  href="#">html</a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="/types/9" target="_blank"
+                                           class="m-pink-label m-padding-tiny m-text-thin">教程</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ui five wide column"><!--图片-->
+                                <a href="/blog/1589430277887" target="_blank">
+                                    <img src="http://cdn.sakurac.cn/blog11.jpg"
+                                         alt="" class="ui m-image rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui padded vertical segment  m-padding-tb-large m-mobile-clear">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header"><a href="/blog/1588573983213" target="_blank"
+                                                         class="m-black">稀疏数组</a></h3>
+                                <p class="m-text">1.实际应用</br>
+                                    2.基本介绍</br>
+                                    3.应用实例</br>
+                                </p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini horizontal link list">
+                                            <div class="item">
+                                                <img src="./images/admin_header.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="/about" style="color: #2E64FE!important;"
+                                                                        class="header m-pink">管理员</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="/archives"><i
+                                                            class="calendar icon m-pink"></i><span>2020-05-12</span></a>
+
+                                                <!--                                          <i class="calendar icon m-pink"></i><a href="javascript:void(0);">2019-11-20</a>-->
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i> <span>109</span>
+                                            </div>
+                                            <!--                                              <div class="item">-->
+                                            <!--                                                  <a th:href="@{/blog/{id}#comment-form(id=${blog.id})}"><i class="comment icon m-pink"></i> <span th:text="${blog.views}">2342</span></a>-->
+                                            <!--                                              </div>-->
+
+                                            <!--<div class="item">
+                                                <i class="tag icon m-pink"></i>
+                                                <a th:text="${blog.typeName}"  href="#">html</a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="/types/6" target="_blank"
+                                           class="m-pink-label m-padding-tiny m-text-thin">数据结构与算法</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ui five wide column"><!--图片-->
+                                <a href="/blog/1588573983213" target="_blank">
+                                    <img src="http://cdn.sakurac.cn/blog10.jpg"
+                                         alt="" class="ui m-image rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui padded vertical segment  m-padding-tb-large m-mobile-clear">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header"><a href="/blog/1587501215623" target="_blank"
+                                                         class="m-black">Spring + Spring MVC + MyBatis（SSM）</a></h3>
+                                <p class="m-text">Spring + Spring MVC + MyBatis（SSM）的基本搭建过程介绍</p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini horizontal link list">
+                                            <div class="item">
+                                                <img src="./images/admin_header.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="/about" style="color: #2E64FE!important;"
+                                                                        class="header m-pink">管理员</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="/archives"><i
+                                                            class="calendar icon m-pink"></i><span>2020-04-22</span></a>
+
+                                                <!--                                          <i class="calendar icon m-pink"></i><a href="javascript:void(0);">2019-11-20</a>-->
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i> <span>109</span>
+                                            </div>
+                                            <!--                                              <div class="item">-->
+                                            <!--                                                  <a th:href="@{/blog/{id}#comment-form(id=${blog.id})}"><i class="comment icon m-pink"></i> <span th:text="${blog.views}">2342</span></a>-->
+                                            <!--                                              </div>-->
+
+                                            <!--<div class="item">
+                                                <i class="tag icon m-pink"></i>
+                                                <a th:text="${blog.typeName}"  href="#">html</a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="/types/8" target="_blank"
+                                           class="m-pink-label m-padding-tiny m-text-thin">Java框架</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ui five wide column"><!--图片-->
+                                <a href="/blog/1587501215623" target="_blank">
+                                    <img src="http://cdn.sakurac.cn/blog9.jpg"
+                                         alt="" class="ui m-image rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui padded vertical segment  m-padding-tb-large m-mobile-clear">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header"><a href="/blog/1587499308464" target="_blank"
+                                                         class="m-black">springMVC</a></h3>
+                                <p class="m-text">Spring MVC作为Spring框架的一个组件，内容并不多，有Servlet的基础，理解MVC框架时会比较轻松</p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini horizontal link list">
+                                            <div class="item">
+                                                <img src="./images/admin_header.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="/about" style="color: #2E64FE!important;"
+                                                                        class="header m-pink">管理员</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="/archives"><i
+                                                            class="calendar icon m-pink"></i><span>2020-04-22</span></a>
+
+                                                <!--                                          <i class="calendar icon m-pink"></i><a href="javascript:void(0);">2019-11-20</a>-->
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i> <span>109</span>
+                                            </div>
+                                            <!--                                              <div class="item">-->
+                                            <!--                                                  <a th:href="@{/blog/{id}#comment-form(id=${blog.id})}"><i class="comment icon m-pink"></i> <span th:text="${blog.views}">2342</span></a>-->
+                                            <!--                                              </div>-->
+
+                                            <!--<div class="item">
+                                                <i class="tag icon m-pink"></i>
+                                                <a th:text="${blog.typeName}"  href="#">html</a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="/types/8" target="_blank"
+                                           class="m-pink-label m-padding-tiny m-text-thin">Java框架</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ui five wide column"><!--图片-->
+                                <a href="/blog/1587499308464" target="_blank">
+                                    <img src="http://cdn.sakurac.cn/blog8.jpg"
+                                         alt="" class="ui m-image rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui padded vertical segment  m-padding-tb-large m-mobile-clear">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header"><a href="/blog/1587405987642" target="_blank"
+                                                         class="m-black">Spring</a></h3>
+                                <p class="m-text">1.使用Spring、Spring MVC、MyBatis组成SSM结构</br>2.IoC/DI、注解、AOP、动态代理
+                                </p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini horizontal link list">
+                                            <div class="item">
+                                                <img src="./images/admin_header.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="/about" style="color: #ffa2a2!important;"
+                                                                        class="header m-pink">管理员</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="/archives"><i
+                                                            class="calendar icon m-pink"></i><span>2020-04-22</span></a>
+
+                                                <!--                                          <i class="calendar icon m-pink"></i><a href="javascript:void(0);">2019-11-20</a>-->
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i> <span>109</span>
+                                            </div>
+                                            <!--                                              <div class="item">-->
+                                            <!--                                                  <a th:href="@{/blog/{id}#comment-form(id=${blog.id})}"><i class="comment icon m-pink"></i> <span th:text="${blog.views}">2342</span></a>-->
+                                            <!--                                              </div>-->
+
+                                            <!--<div class="item">
+                                                <i class="tag icon m-pink"></i>
+                                                <a th:text="${blog.typeName}"  href="#">html</a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="/types/8" target="_blank"
+                                           class="m-pink-label m-padding-tiny m-text-thin">Java框架</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ui five wide column"><!--图片-->
+                                <a href="/blog/1587405987642" target="_blank">
+                                    <img src="http://cdn.sakurac.cn/blog7.jpg"
+                                         alt="" class="ui m-image rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui padded vertical segment  m-padding-tb-large m-mobile-clear">
+                        <div class="ui mobile reversed stackable grid">
+                            <div class="ui eleven wide column">
+                                <h3 class="ui header"><a href="/blog/1587058228078" target="_blank"
+                                                         class="m-black">Mybatis分页和ResultMap</a></h3>
+                                <p class="m-text">1.Mybatis中ResultMap的使用</br>
+                                    2.Mybatis的几种分页方法</p>
+                                <div class="ui stackable grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui mini horizontal link list">
+                                            <div class="item">
+                                                <img src="./images/admin_header.jpg" alt=""
+                                                     class="ui avatar image">
+                                                <div class="content"><a href="/about" style="color: #ffa2a2!important;"
+                                                                        class="header m-pink">管理员</a></div>
+                                            </div>
+                                            <div class="item">
+                                                <a href="/archives"><i
+                                                            class="calendar icon m-pink"></i><span>2020-04-21</span></a>
+
+                                                <!--                                          <i class="calendar icon m-pink"></i><a href="javascript:void(0);">2019-11-20</a>-->
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i> <span>109</span>
+                                            </div>
+                                            <!--                                              <div class="item">-->
+                                            <!--                                                  <a th:href="@{/blog/{id}#comment-form(id=${blog.id})}"><i class="comment icon m-pink"></i> <span th:text="${blog.views}">2342</span></a>-->
+                                            <!--                                              </div>-->
+
+                                            <!--<div class="item">
+                                                <i class="tag icon m-pink"></i>
+                                                <a th:text="${blog.typeName}"  href="#">html</a>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="right aligned five wide column">
+                                        <a href="/types/8" target="_blank"
+                                           class="m-pink-label m-padding-tiny m-text-thin">Java框架</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="ui five wide column"><!--图片-->
+                                <a href="/blog/1587058228078" target="_blank">
+                                    <img src="http://cdn.sakurac.cn/blog5.jpg"
+                                         alt="" class="ui m-image rounded image">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  分页-->
+                <div class="ui attached  m-bg segment">
+                    <center>
+                        <table class="m-mobile-wide" width="425px">
+                            <tbody>
+                            <tr align="center">
+                                <td>
+
+                                </td>
+                                <td>
+                                    第
+                                    <h8 class="m-pink">1</h8>
+                                    页/共
+                                    <h8 class="m-pink">2</h8>
+                                    页
+                                    &nbsp;
+                                    共
+                                    <h8 class="m-pink">15</h8>
+                                    篇
+                                </td>
+                                <td>
+                                    <form name="pageForm" action="/" method="get">
+                                        <div class="ui mini input ">
+                                            <input type="text" class="m-bg" name="pageNum" placeholder="页码"
+                                                   style="width: 50px!important; height: 27.76px!important;">
+                                            <button style="font-size: 11px!important;width: 30px!important; height: 0px!important; border: none;margin: 5px;padding: 0;"
+                                                    class="m-pink m-bg" onclick="document.forms[('pageNum')].submit()">
+                                                跳转
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td> &nbsp;</td>
+                                <td class="  " style="float: right">
+                                    <a href="/?pageNum=2" class="ui button basic mini " style="float: right; ">下一页</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </center>
+                </div>
+            </div>
+            <!--右边的top-->
+            <div class="five wide column">
+                <!--分类-->
+                <div class="ui segments ">
+                    <div class="ui segment m-bg m-top-color ">
+                        <div class="ui two column grid m-bg">
+                            <div class="column ">
+                                <i class="idea icon m-pink "></i>分类
+                            </div>
+                            <div class="column m-bg" style="float: right">
+                                <a style="float: right" href="/types/-1">more <i
+                                            class="caret right icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui m-bg segment m-pink">
+                        <div class="ui m-bg fluid vertical menu">
+                            <a href="/types/8" class="item">
+                                <span>Java框架</span>
+                                <div class="m-pink-label">11</div>
+                            </a><a href="/types/3" class="item">
+                                <span>Java</span>
+                                <div class="m-pink-label">2</div>
+                            </a><a href="/types/6" class="item">
+                                <span>数据结构与算法</span>
+                                <div class="m-pink-label">1</div>
+                            </a><a href="/types/9" class="item">
+                                <span>教程</span>
+                                <div class="m-pink-label">1</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--标签-->
+                <div class="ui m-bg segments m-margin-top-large ">
+                    <div class="ui m-bg segment m-top-color">
+                        <div class="ui two column grid m-bg">
+
+                            <div class="column m-bg">
+                                <i class="tags m-bg icon m-pink"></i>标签云
+                            </div>
+                            <div class="right m-bg aligned column ">
+                                <a style="float: right" class="m-bg" href="/tags/-1">more
+                                    <i class="caret right icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cloud m-bg">
+                        <ul>
+                            <li><a href="/tags/14"> <span>SpringMVC</span>
+                                    <div class="m-inline-block">3</div>
+                                </a><a href="/tags/2"> <span>学习</span>
+                                    <div class="m-inline-block">14</div>
+                                </a><a href="/tags/1"> <span>基础知识</span>
+                                    <div class="m-inline-block">10</div>
+                                </a><a href="/tags/7"> <span>Mybatis</span>
+                                    <div class="m-inline-block">5</div>
+                                </a><a href="/tags/10"> <span>Spring</span>
+                                    <div class="m-inline-block">2</div>
+                                </a><a href="/tags/16"> <span>算法</span>
+                                    <div class="m-inline-block">1</div>
+                                </a><a href="/tags/13"> <span>Linux</span>
+                                    <div class="m-inline-block">1</div>
+                                </a><a href="/tags/15"> <span>进阶</span>
+                                    <div class="m-inline-block">4</div>
+                                </a><a href="/tags/11"> <span>SpringBoot</span>
+                                    <div class="m-inline-block">1</div>
+                                </a><a href="/tags/18"> <span>学习笔记</span>
+                                    <div class="m-inline-block">3</div>
+                                </a><a href="/tags/19"> <span>视频</span>
+                                    <div class="m-inline-block">4</div>
+                                </a><a href="/tags/20"> <span>SpringCloud</span>
+                                    <div class="m-inline-block">2</div>
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--点击排行-->
+                <div class="ui segments m-margin-top-large m-bg">
+                    <div class="ui segment m-bg m-top-color">
+                        <i class="bookmark icon m-pink m-bg"></i>点击排行
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1577870084710" class="m-black  m-text-thin">springMVC执行原理</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1588573983213" class="m-black  m-text-thin">稀疏数组</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1587501215623" class="m-black  m-text-thin">Spring + Spring MVC +
+                            MyBatis（SSM）</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1587058228078" class="m-black  m-text-thin">Mybatis分页和ResultMap</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1586786219725" class="m-black  m-text-thin">Mybatis简介</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1577879724073" class="m-black  m-text-thin">异常</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1587499308464" class="m-black  m-text-thin">springMVC</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1587019203636" class="m-black  m-text-thin">Mybatis基本配置和操作</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1587314876839" class="m-black  m-text-thin">Mybatis关联关系和动态Sql</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1587405987642" class="m-black  m-text-thin">Spring</a>
+                    </div>
+
+                </div>
+                <!--最新推荐-->
+                <div class="ui segments m-margin-top-large m-bg">
+                    <div class="ui segment m-bg m-top-color">
+                        <i class="bookmark icon m-pink m-bg"></i>最新推荐
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1591456383956" class="m-black  m-text-thin">SpringCloud五大核心组件</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1591174829951" class="m-black  m-text-thin">SpringCloud简介</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1590902734277" class="m-black  m-text-thin">Java远程调用接口</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1589616070230" class="m-black  m-text-thin">SpringBoot</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1589430277887" class="m-black  m-text-thin">Linux云服务器上部署Web项目</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1588573983213" class="m-black  m-text-thin">稀疏数组</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1587501215623" class="m-black  m-text-thin">Spring + Spring MVC +
+                            MyBatis（SSM）</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1587499308464" class="m-black  m-text-thin">springMVC</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1587405987642" class="m-black  m-text-thin">Spring</a>
+                    </div>
+                    <div class="ui m-bg segment">
+                        <a href="/blog/1587058228078" class="m-black  m-text-thin">Mybatis分页和ResultMap</a>
+                    </div>
+
+                </div>
+
+
+                <!--二维码-->
+                <h4 class="ui m-bg horizontal divider header m-margin-top-large">扫码加好友</h4>
+                <div class="ui m-bg centered card" style="width: 11em">
+                    <img src="./images/wx.png" alt="" class="ui m-bg rounded image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="toolbar" class="animated bounceInUp m-fixed m-right-bottom-down " style="display: none">
+    <div class="ui vertical icon buttons">
+        <div id="toTop-button" class="ui secondary m-bg-pink icon button"><i class="chevron up icon"></i></div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+
+<!-- 尾部-->
+<div class="footerPage"></div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+<script src="./lib/prism/prism.js"></script>
+<script src="./lib/tocbot/tocbot.min.js"></script>
+<script src="./lib/qrcode/qrcode.js"></script>
+<script src="./lib/waypoints/jquery.waypoints.js"></script>
+<script src="./lib/editormd/editormd.min.js"></script>
+<script src="./js/weather.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/common.js"></script>
+<script>
+
+    // 浏览器搞笑标题
+    var OriginTitle = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            $('[rel="icon"]').attr('href', "/funny.ico");
+            document.title = '(╯°Д°)╯︵ ┻━┻页面崩溃啦 ~';
+            clearTimeout(titleTime);
+        } else {
+            $('[rel="icon"]').attr('href', "/favicon.ico");
+            document.title = '┬─┬ ノ( \' - \'ノ) 噫又好啦 ~' + OriginTitle;
+            titleTime = setTimeout(function () {
+                document.title = OriginTitle;
+            }, 2000);
+        }
+    });
+</script>
+
+
+</body>
+</html>

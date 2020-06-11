@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/alert_window.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <!--文章排版-->
+    <link rel="stylesheet" href="./css/typo.css">
+    <!--动态效果-->
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./lib/prism/prism.css">
+    <link rel="stylesheet" href="./lib/tocbot/tocbot.css">
+    <link rel="stylesheet" href="./css/me.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"
+          src="./lib/live2d-widget/waifu.css">
+</head>
+<body>
+<!--导航-->
+<div class="headerPage"></div>
+
+
+
+<!--中间内容-->
+<div class="widget widget1 " id="window4" hidden="hidden">
+    <div class="body my-window animated fadeIn">
+        <img class="dialogIco" width="100px" height="100px" src="http://sakurac.cn/images/sakura1.png" alt=""/>
+        <div class="dialogTop">
+            <a id="btn_ok4" class="claseDialogBtn">×</a>
+            <center class="m-pink" style="margin-top: 45px;font-weight: bold;font-size: large;">友链申请</center>
+        </div>
+        <div id="addressWarning" hidden="hidden" style="color: red">请填写正确的网站地址</div>
+        <form action="" method="post" id="editForm">
+            <ul class="editInfos">
+                <li class="my-li"><label><input id="name" type="text" class="ipt" placeholder="网站名称（必填）"/></label></li>
+                <li class="my-li"><label><input id="address" type="text" class="ipt" placeholder="网站地址（必填）"/></label></li>
+                <li class="my-li"><label><input id="avatar" type="text" class="ipt" placeholder="图片地址（非必填）"/></label></li>
+                <li class="my-li"><input value="确认" id="submit" class="submitBtn"/></li>
+            </ul>
+        </form>
+        <div class="btns">
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div id="waypoint" class="m-container m-padding-tb-big animated fadeInUp">
+    <div class="ui container">
+        <!--header-->
+        <div class="ui top attached segment m-bg">
+            <div class="ui middle aligned one column grid ">
+                <div class="column">
+                    <h3 class="m-pink m-text-center">友情链接</h3>
+                </div>
+            </div>
+        </div>
+        <!--列表-->
+        <div class="ui attached segment m-padding-tb-large m-bg">
+            <div class="ui container">
+
+                <ui class="list">
+                    <div class="m-margin-left-mini m-margin-tb-tiny" style="font-size: large;font-weight: bold">申请要求
+                    </div>
+                    <br>
+                    <li class="m-margin-left m-margin-tb-tiny m-li" style="font-size: medium">技术博客、生活博客优先</li>
+                    <li class="m-margin-left m-margin-tb-tiny m-li" style="font-size: medium">在申请前请先把本站添加为友情链接</li>
+                    <li class="m-margin-left m-margin-tb-tiny m-li" style="font-size: medium">如果有疑问可以留言，我会回复您的</li>
+                    <!--                      最近清除一部分友链，主要是已经无法访问或者SSL失效的，如果您修复了存在的问题请联系我，我会及时处理。-->
+                    <br>
+                    <div class="m-margin-left-mini m-margin-tb-tiny" style="font-size: large;font-weight: bold">申请格式
+                    </div>
+                    <br>
+                    <li class="m-margin-left m-margin-tb-tiny m-li" style="font-size: medium">网站标题：Sakura°</li>
+                    <li class="m-margin-left m-margin-tb-tiny m-li" style="font-size: medium">网站地址：http://sakurac.cn
+                    </li>
+                    <li class="m-margin-left m-margin-tb-tiny m-li" style="font-size: medium">
+                        图片地址：http://sakurac.cn/images/about.jpg <span style="color: red">（注意：地址必须以http或者https开头）</span>
+                    </li>
+                    <div style="width: 120px!important; float: right" class="field m-mobile-wide "
+                         data-tooltip="点击申请友链">
+                        <button id="bindEmail" type="button"
+                                class="ui secondary m-bg-pink button m-mobile-wide"></i>友链申请
+                        </button>
+                    </div>
+                    <br>
+                </ui>
+
+            </div>
+
+        </div>
+        <!--内容-->
+        <div class="ui top attached padding segment m-top-color  m-bg">
+            <div class="ui five column grid">
+
+                <div class="column m-mobile-Fwide m-margin-mobile m-mobile-clear m-margin-friend">
+                    <a target="_blank" href="http://sakurac.cn/">
+                        <div class="ui fluid card m-bg">
+                            <div class="image">
+                                <img class="ui medium  image"
+                                     src="http://sakurac.cn/images/about.jpg">
+                            </div>
+                            <div class="content m-bg">
+                                <a target="_blank" href="http://sakurac.cn/"
+                                   class="header m-text-center">Sakura个人博客</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="column m-mobile-Fwide m-margin-mobile m-mobile-clear m-margin-friend">
+                    <a target="_blank" href="https://www.lcgod.com">
+                        <div class="ui fluid card m-bg">
+                            <div class="image">
+                                <img class="ui medium  image"
+                                     src="http://q.qlogo.cn/headimg_dl?dst_uin=775126470&amp;spec=640&amp;img_type=jpg">
+                            </div>
+                            <div class="content m-bg">
+                                <a target="_blank" href="https://www.lcgod.com"
+                                   class="header m-text-center">李聪 博客</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="column m-mobile-Fwide m-margin-mobile m-mobile-clear m-margin-friend">
+                    <a target="_blank" href="http://xiongsihao.com/">
+                        <div class="ui fluid card m-bg">
+                            <div class="image">
+                                <img class="ui medium  image"
+                                     src="http://thirdqq.qlogo.cn/g?b=oidb&amp;k=FiaIS56ZqN6CcEsNsuY3jQw&amp;s=640&amp;t=1556116622">
+                            </div>
+                            <div class="content m-bg">
+                                <a target="_blank" href="http://xiongsihao.com/"
+                                   class="header m-text-center">Xiong_sh</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="column m-mobile-Fwide m-margin-mobile m-mobile-clear m-margin-friend">
+                    <a target="_blank" href="https://www.liangzl.com">
+                        <div class="ui fluid card m-bg">
+                            <div class="image">
+                                <img class="ui medium  image"
+                                     src="http://q.qlogo.cn/headimg_dl?dst_uin=419400980&amp;spec=640&amp;img_type=jpg">
+                            </div>
+                            <div class="content m-bg">
+                                <a target="_blank" href="https://www.liangzl.com"
+                                   class="header m-text-center">梁钟霖个人博客</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div id="toolbar" class="animated bounceInUp m-fixed m-right-bottom-down " style="display: none">
+    <div class="ui vertical icon buttons">
+        <div id="toTop-button" class="ui secondary m-bg-pink icon button"><i class="chevron up icon"></i></div>
+    </div>
+</div>
+
+
+<br>
+<br>
+<br>
+
+
+<!--  底部-->
+<div class="footerPage"></div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+<script src="./lib/prism/prism.js"></script>
+<script src="./lib/tocbot/tocbot.min.js"></script>
+<script src="./lib/qrcode/qrcode.js"></script>
+<script src="./lib/waypoints/jquery.waypoints.js"></script>
+<script src="./lib/editormd/editormd.min.js"></script>
+<script src="./js/weather.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/common.js"></script>
+</body>
+</html>

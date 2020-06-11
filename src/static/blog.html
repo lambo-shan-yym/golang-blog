@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/alert_window.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <!--文章排版-->
+    <link rel="stylesheet" href="./css/typo.css">
+    <!--动态效果-->
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./lib/prism/prism.css">
+    <link rel="stylesheet" href="./lib/tocbot/tocbot.css">
+    <link rel="stylesheet" href="./css/me.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"
+          src="./lib/live2d-widget/waifu.css">
+
+
+</head>
+<body>
+<!--导航-->
+<div class="headerPage"></div>
+
+
+
+<!--中间内容-->
+<div id="waypoint" class="m-container-big m-padding-tb-big  animated bounceInUp">
+    <link rel="stylesheet" href="/css/alert_window.css"/>
+    <div class="ui container ">
+        <!--中间内容-->
+        <div style="" class="ui top attached segment m-bg">
+            <div class="ui  horizontal link list">
+                <div class="item">
+                    <img src="http://fp1.fghrsh.net/2020/05/26/ede91732609860c15c516d6bfe72b157.jpg" alt=""
+                         class="ui avatar image site-author-image">
+                    <div class="content"><a href="/about" style="color: #ffa2a2!important;" class="m-pink m-font-big">管理员</a></div>
+                </div>
+                <div class="item">
+                    <i class="calendar icon m-pink"></i><span>2020-04-22</span>
+                </div>
+                <div class="item">
+                    <i class="eye icon"></i> <span>109</span>
+                </div>
+                <div class="item">
+                    <i class="empty heart icon icon"></i> <span>109</span>
+                </div>
+            </div>
+        </div>
+        <!--图片区域-->
+        <div class="ui  attached m-bg segment">
+            <!--fluid作用是撑满segment的整个空间-->
+            <img id="blogFirstPicture" src="http://cdn.sakurac.cn/blog8.jpg"
+                 alt="" class="ui fluid rounded image ">
+        </div>
+        <!--内容区域-->
+        <div class="ui  attached padded m-bg segment">
+            <div class="ui right aligned basic m-bg segment">
+                <div class="ui m-bg m-pink-label basic label">原创</div>
+            </div>
+            <h1 class="ui header center aligned">springMVC</h1>
+            <!--中间主要内容部分-->
+            <div id="content"
+                 class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large"><h1 id="1spring-mvc-概述">1、Spring MVC 概述</h1>
+                <ul>
+                    <li>
+                        <p>Spring MVC作为Spring框架的一个组件，内容并不多，有Servlet的基础，理解MVC框架时会比较轻松</p>
+                    </li>
+                    <li>
+                        <p>MVC框架处理三件事(以下三件事就构成了SSM)：</p>
+                        <p>①    Spring MVC 与 Spring整合</p>
+                        <p>②    MyBatis与Spring整合</p>
+                        <p>③    MyBatis与Spring MVC整合</p>
+                    </li>
+                    <li>
+                        <p>Notice：SpringMVC当中有一规范，使用的时候注意，会与我们之前的编码习惯有冲突</p>
+                    </li>
+                    <li>
+                        <p>Spring MVC是Spring框架中的一个组件</p>
+                    </li>
+                    <li>
+                        <p>Spring MVC就是一个实现了MVC的框架，功能上与Struts2一样</p>
+                    </li>
+                    <li>
+                        <p>Spring MVC是一个基于Servlet的实现的MVC框架</p>
+                    </li>
+                    <li>
+                        <p>在一个MVC框架中处理三件事儿：</p>
+                        <p>①    接收请求 ，获取请求参数</p>
+                        <p>②    调用业务</p>
+                        <p>③    页面导航</p>
+                    </li>
+                </ul>
+                <h1 id="2spring-mvc的核心组件">2、Spring MVC的核心组件</h1>
+                <ul>
+                    <li>DispatcherServlet:Spring MVC提供的一个核心控制器，所有请求都发送到这个Servlet上，有这个Servlet进行请求分发，规范中要求请求一个jsp资源时，也要求大家都提交到该Servlet</li>
+                    <li>HandlerMapping:映射器，DispatcherServlet分发到不同的Controller中，根据HaddlerMapping映射进行的分发，这个类我们不用去管。</li>
+                    <li>Controller：控制器。这个是我们在开发时要编写的核心组件
+                        A 接收请求，获得请求参数
+                        B 调用后台业务
+                        C 保存数据进行页面导航</li>
+                    <li>ModelAndView：模型视图组件。Model是一个模型对象，保存，传递数据。View是一个视图对象，进行页面导航。这个类Spring已经提供好了，我们使用即可。</li>
+                    <li>ViewResolver：视图解析器。进行页面导航时的路径处理。这个在Spring MVC的配置文件中进行配置就好了。</li>
+                    <li>View：视图，  .jsp页面</li>
+                </ul>
+                <h1 id="3spring-mvc的案例">3、Spring MVC的案例</h1>
+                <h2 id="31-创建web工程">3.1 创建WEB工程</h2>
+                <h2 id="32-导入springmvc框架">3.2 导入SpringMVC框架</h2>
+                <p>​     导入Spring MVC框架必然要导入Spring框架</p>
+                <h2 id="33-在webxml文件中进行关于核心控制器的配置">3.3 在Web.xml文件中进行关于核心控制器的配置</h2>
+                <pre><code class="language-xml">&lt;!-- Spring MVC的核心控制器配置 --&gt;
+  &lt;servlet&gt;
+  	&lt;servlet-name&gt;DispatcherServlet&lt;/servlet-name&gt;
+  	&lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+  	&lt;init-param&gt;
+  	  &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+  	  &lt;!-- Spring MVC部分的配置，分开时叫spring-mvc.xml
+  	  	同时也可以统一配置，在applicationContext.xml文件中进行配置 --&gt;
+  	  &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+  	&lt;/init-param&gt;
+  &lt;/servlet&gt;
+  &lt;!-- Spring MVC的核心控制器URL配置 --&gt;
+  &lt;servlet-mapping&gt;
+  	&lt;servlet-name&gt;DispatcherServlet&lt;/servlet-name&gt;
+  	&lt;!-- 接收的请求的格式，如果所有请求都提交到这个Servlet，可以使用&quot;/&quot; --&gt;
+  	&lt;url-pattern&gt;*.xhtml&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+
+</code></pre>
+                <h2 id="34-在spring-mvc配置文件中配置mvc的信息">3.4 在Spring MVC配置文件中配置MVC的信息</h2>
+                <pre><code class="language-xml">&lt;!-- Spring MVC配置开始 --&gt;
+	&lt;!-- Spring MVC的注册处理器 --&gt;
+	&lt;mvc:annotation-driven/&gt;
+	&lt;!-- Spring MVC的视图处理器 --&gt;
+	&lt;bean id=&quot;internalResourceViewResolver&quot;
+			class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+		&lt;property name=&quot;prefix&quot; value=&quot;/&quot;&gt;&lt;/property&gt;
+		&lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;&gt;&lt;/property&gt;
+	&lt;/bean&gt;
+	&lt;!-- Spring MVC配置结束 --&gt;
+</code></pre>
+                <h2 id="35-编写controller">3.5 编写Controller</h2>
+                <pre><code class="language-java">@Controller(&quot;DemoController&quot;)
+@RequestMapping(&quot;/demo&quot;)
+public class DemoController {
+	@RequestMapping(&quot;hello&quot;)
+	public String hello(){
+		System.out.println(&quot;DemoController.hello() is called...&quot;);
+		return &quot;index&quot;;
+	}
+}
+</code></pre>
+                <p><strong>在SpringMVC中使用注解的方式注册Controller</strong></p>
+                <pre><code class="language-xml">&lt;context:annotation-config/&gt;
+&lt;context:component-scan base-package=*&quot;com.zpark.tea_mgr.controller&quot;*/&gt;
+</code></pre>
+                <h2 id="36-访问">3.6 访问</h2>
+                <p>URL：   http://localhost:8080/mvc01/demo/hello.xhtml</p>
+                <h1 id="4获得请求的参数">4、获得请求的参数</h1>
+                <p>​     在Spring MVC框架中，获得请求参数的方式有好几种，Controller类的方法的参数也是由Spring容器负责注入的。自动按反射的方式进行注入的。</p>
+                <h2 id="41-直接使用方法参数">4.1 直接使用方法参数</h2>
+                <pre><code class="language-java">@RequestMapping(&quot;demo01&quot;)
+	public String demo01(String goodsName){
+		System.out.println(&quot;demo01 is ran...&quot;);
+		return &quot;index&quot;;
+}
+</code></pre>
+                <h2 id="42-使用对象来接收方法参数">4.2 使用对象来接收方法参数</h2>
+                <pre><code class="language-java">public class Goods {
+	private int goodsId;
+	private String goodsName;
+}
+@RequestMapping(&quot;demo02&quot;)
+	public String demo02(Goods goods){
+		System.out.println(&quot;demo02 is ran...&quot;);
+		System.out.println(&quot;demo02:goods.getGoodsId()=&quot;+goods.getGoodsId());
+		System.out.println(&quot;demo02:goods.getGoodsName()=&quot;+goods.getGoodsName());
+		return &quot;index&quot;;
+	}
+
+</code></pre>
+                <h2 id="43-直接使用servletapi">4.3 直接使用ServletAPI</h2>
+                <pre><code class="language-java">@RequestMapping(&quot;demo03&quot;)
+	public String demo03(HttpServletRequest request){
+		System.out.println(&quot;demo03 is ran...&quot;);
+		System.out.println(&quot;demo03:goodsName=&quot;+request.getParameter(&quot;goodsName&quot;));
+		System.out.println(&quot;demo03:goodsId=&quot;+request.getParameter(&quot;goodsId&quot;));
+		return &quot;index&quot;;
+}
+</code></pre>
+                <h2 id="44-当请求参数的名称与方法名称的参数不一致">4.4 当请求参数的名称与方法名称的参数不一致</h2>
+                <pre><code class="language-java">@RequestMapping(&quot;demo04&quot;)
+	public String demo04(@RequestParam(&quot;goodsName&quot;) String name){
+		System.out.println(&quot;demo04 is ran...&quot;);
+		System.out.println(&quot;demo04:goodsName=&quot;+name);
+		return &quot;index&quot;;
+}
+</code></pre>
+                <h2 id="45-直接从url地址上获取请求参数">4.5 直接从URL地址上获取请求参数</h2>
+                <pre><code class="language-java">@RequestMapping(&quot;demo05/{goodsId}/{goodsName}.xhtml&quot;)
+	public String demo05(@PathVariable int goodsId, @PathVariable String goodsName){
+		System.out.println(&quot;demo05 is ran...&quot;);
+		System.out.println(&quot;demo05:goodsId=&quot;+goodsId);
+		System.out.println(&quot;demo05:goodsName=&quot;+goodsName);
+		return &quot;index&quot;;
+}
+</code></pre>
+                <table class="ui celled table">
+                    <thead>
+                    <tr><th>地址</th><th>结果</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>http://localhost:8080/mvc01/demo/demo05/18/小米.xhtml</td><td>三月 29, 2020 8:53:13 上午   org.apache.catalina.core.ApplicationContext log   信息: Initializing Spring FrameworkServlet 'DispatcherServlet'   demo05 is ran...   demo05:goodsId=18   demo05:goodsName=小米</td></tr>
+                    </tbody>
+                </table>
+                <h1 id="5进行数据传递">5、进行数据传递</h1>
+                <h2 id="51-直接使用servlet-api">5.1 直接使用Servlet API</h2>
+                <pre><code class="language-java">@Controller(&quot;DataController&quot;)
+@RequestMapping(&quot;/data&quot;)
+public class DataController {
+
+	@RequestMapping(value={&quot;demo01&quot;}, method={RequestMethod.POST, RequestMethod.GET})
+	public String demo01(HttpServletRequest request, HttpSession session){
+		System.out.println(&quot;demo01 is ran...&quot;);
+		request.setAttribute(&quot;name&quot;, &quot;cc&quot;);
+		session.setAttribute(&quot;age&quot;, 18);
+		return &quot;index&quot;;
+}
+</code></pre>
+                <pre><code class="language-xml">&lt;body&gt;
+    This is my JSP page. &lt;br&gt;
+    年龄:${sessionScope.age }&lt;br&gt;
+    requestName:${requestScope.name }&lt;br&gt;
+    sessionName:${sessionScope.name }&lt;br&gt;
+    appName:${applicationScope.name }&lt;br&gt;
+&lt;/body&gt;
+</code></pre>
+                <h2 id="52-使用spring-mvc框架的model接口">5.2 使用Spring MVC框架的Model接口</h2>
+                <pre><code class="language-java">@RequestMapping(&quot;demo02&quot;)
+	public String demo02(Model model){
+		System.out.println(&quot;demo02 is ran...&quot;);
+		model.addAttribute(&quot;name&quot;, &quot;张三&quot;);
+		return &quot;index&quot;;
+	}
+@RequestMapping(&quot;demo03&quot;)
+	public String demo03(ModelMap map){
+		System.out.println(&quot;demo03 is ran...&quot;);
+		map.put(&quot;name&quot;, &quot;李四&quot;);
+		return &quot;index&quot;;
+	}
+@RequestMapping(&quot;demo04&quot;)
+	public ModelAndView demo04(){
+		System.out.println(&quot;demo04 is ran...&quot;);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject(&quot;name&quot;, &quot;老王&quot;);
+		mav.setViewName(&quot;index&quot;);
+		return mav;
+	}
+</code></pre>
+                <h1 id="6页面导航">6、页面导航</h1>
+                <p>在WEB应用程序开发时，页面跳转有几种方式?   二种</p>
+                <p>①    服务器转发                ② 客户端重定向</p>
+                <p>在Spring MVC种导航的两种实现方式:</p>
+                <p>①    返回字符串(推荐)               ② 使用ModelAndView</p>
+                <p>在Spring MVC种两种导航进行跳转时，前缀不同:</p>
+                <p>1    转发:        forward:</p>
+                <p>2    重定向:      redirect:</p>
+                <h2 id="61-使用modelandview实现转发到jsp页面">6.1 使用ModelAndView实现转发到jsp页面</h2>
+                <pre><code class="language-java">@Controller(&quot;ForwordController&quot;)
+@RequestMapping(&quot;/forward&quot;)
+public class ForwordController {
+
+	@RequestMapping(&quot;demo01&quot;)
+	public ModelAndView demo01(){
+		System.out.println(&quot;demo01 is ran...&quot;);
+		ModelAndView mav = new ModelAndView();
+		// 如果转发到jsp页面，不用像下面写的这么复杂，因为他是默认方式
+//		mav.setViewName(&quot;forward:/exp.jsp&quot;);
+		mav.setViewName(&quot;exp&quot;);
+		return mav;
+}
+</code></pre>
+                <h2 id="62-使用string类型转发到controller">6.2 使用String类型转发到Controller</h2>
+                <p>在Spring MVC中默认只有转发到jsp页面。如果要转发到Controller就要加前缀</p>
+                <pre><code class="language-java">@RequestMapping(&quot;demo02&quot;)
+	public String demo02(){
+		System.out.println(&quot;demo02 is ran...&quot;);
+		return &quot;forward:/forward/demo01.xhtml&quot;;
+}
+</code></pre>
+                <h2 id="63-重定向到controller">6.3 重定向到Controller</h2>
+                <p>​     Spring MVC的规范是不直接访问jsp页面，所以重定向时就只有Controller、</p>
+                <h2 id="64-在重定向时附加参数">6.4 在重定向时附加参数</h2>
+                <p>​     一般平常的业务，比如：保存订单之后，会以重定向的方式进行订单查询的调用。</p>
+                <pre><code class="language-java">@Controller(&quot;RedirectController&quot;)
+@RequestMapping(&quot;/redirect&quot;)
+public class RedirectController {
+
+	@RequestMapping(&quot;demo01&quot;)
+	public String demo01(@RequestParam(&quot;goodsId&quot;) int goodsId){
+		System.out.println(&quot;demo01 is ran...&quot;);
+		System.out.println(&quot;goodsId:&quot; + goodsId);
+		return &quot;exp&quot;;
+	}
+
+	@RequestMapping(&quot;demo02&quot;)
+	public String demo02(Model model){
+		System.out.println(&quot;demo02 is ran...&quot;);
+		model.addAttribute(&quot;goodsId&quot;, 6);
+		return &quot;redirect:/redirect/demo01.xhtml&quot;;
+	}
+</code></pre>
+                <p><strong>请求之前：http://localhost:9527/mvc01/redirect/demo02.xhtml</strong></p>
+                <p><strong>请求之后：http://localhost:9527/mvc01/redirect/demo01.xhtml?goodsId=6</strong></p>
+                <p><strong>在Model种保存的数据会出现在URL地址栏的参数的位置。</strong></p>
+                <h1 id="7-springmvc整合json的使用">7、 SpringMVC整合JSON的使用</h1>
+                <p>SpringMVC中使用json时，不用过多的配置</p>
+                <h2 id="71-导入json的jar文件">7.1 导入json的jar文件</h2>
+                <p><img src="http://cdn.sakurac.cn/202004220343_63.png" alt="" /></p>
+                <h2 id="72-使用controller返回json">7.2 使用Controller返回json</h2>
+                <p>当一个Controller方法返回一个JSON时，需要用注解**@ResponseBody**</p>
+                <p>以下演示了返回不同的数据类型的处理</p>
+                <pre><code class="language-java">    // 返回页面
+    @RequestMapping(&quot;demo01&quot;)
+	public String demo01(){
+		System.out.println(&quot;demo01 ran...&quot;);
+		return &quot;index&quot;;
+	}
+	// 返回文本
+	@RequestMapping(&quot;demo02&quot;)
+	@ResponseBody
+	public String demo02(){
+		System.out.println(&quot;demo02 ran...&quot;);
+		return &quot;index&quot;;
+	}
+	// 返回对象
+	@RequestMapping(&quot;demo03&quot;)
+	@ResponseBody
+	public Object demo03(){
+		System.out.println(&quot;demo03 ran...&quot;);
+		return false;
+	}
+	// 返回自定义对象
+	@RequestMapping(&quot;demo04&quot;)
+	@ResponseBody
+	public Object demo04(){
+		System.out.println(&quot;demo04 ran...&quot;);
+		Goods goods = new Goods();
+		goods.setGoodsId(1);
+		goods.setGoodsName(&quot;测试1&quot;);
+		return goods;
+	}
+	// 返回集合
+	@RequestMapping(&quot;demo05&quot;)
+	@ResponseBody
+	public Object demo05(){
+		System.out.println(&quot;demo05 ran...&quot;);
+		List&lt;Goods&gt; goodsList = new ArrayList&lt;Goods&gt;();
+		Goods goods1 = new Goods();
+		goods1.setGoodsId(1);
+		goods1.setGoodsName(&quot;测试1&quot;);
+		Goods goods2 = new Goods();
+		goods2.setGoodsId(2);
+		goods2.setGoodsName(&quot;测试2&quot;);
+		goodsList.add(goods1);
+		goodsList.add(goods2);
+		return goodsList;
+	}
+	// 返回Map
+	@RequestMapping(&quot;demo06&quot;)
+	@ResponseBody
+	public Object demo06(){
+		System.out.println(&quot;demo06 ran...&quot;);
+		Map&lt;String, Object&gt; map = new HashMap&lt;String, Object&gt;();
+		List&lt;Goods&gt; goodsList = new ArrayList&lt;Goods&gt;();
+		Goods goods1 = new Goods();
+		goods1.setGoodsId(1);
+		goods1.setGoodsName(&quot;测试1&quot;);
+		Goods goods2 = new Goods();
+		goods2.setGoodsId(2);
+		goods2.setGoodsName(&quot;测试2&quot;);
+		goodsList.add(goods1);
+		goodsList.add(goods2);
+		map.put(&quot;goodsList&quot;, goodsList);
+		map.put(&quot;name&quot;, &quot;Albert&quot;);
+		map.put(&quot;age&quot;, 18);
+		return map;
+	}
+</code></pre>
+                <p><strong>以下是jQuery以及Ajax的一些示范性代码</strong></p>
+                <pre><code class="language-html">&lt;h1 id=&quot;title1&quot;&gt;点我&lt;/h1&gt;
+&lt;div id=&quot;index_div01&quot;&gt;&lt;/div&gt;
+</code></pre>
+                <pre><code class="language-javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+		$(function(){
+			$(&quot;#title1&quot;).click(function(){
+				$.ajax({
+					url:&quot;${pageContext.request.contextPath}/Json/demo06.do&quot;,
+					type:&quot;POST&quot;,
+					dataType:&quot;json&quot;,
+					success:function(data){
+						for(var key in data){
+							$(&quot;#index_div01&quot;).css({&quot;color&quot;:&quot;red&quot;,&quot;font-size&quot;:&quot;28px&quot;});
+							if(key == &quot;goodsList&quot;){
+								$(&quot;#index_div01&quot;).append(&quot;goodsList Info:&lt;br&gt;&quot;);
+								// 遍历集合
+								for(var i=0; i&lt;data[key].length; i++){
+									$(&quot;#index_div01&quot;).append(&quot;&amp;nbsp;&amp;nbsp;&quot;).append(data[key][i].goodsId).append(&quot;:&quot;).append(data[key][i].goodsName).append(&quot;;&lt;br&gt;&quot;);
+								}
+							}else{
+								$(&quot;#index_div01&quot;).append(key+&quot;:&quot;).append(data[key] + &quot;&lt;br&gt;&quot;);
+							}
+						}
+					}
+				});
+			});
+		});
+&lt;/script&gt;
+
+</code></pre>
+                <h1 id="8关于日期的处理">8、关于日期的处理</h1>
+                <h2 id="81-在请求中有日期类型时">8.1 在请求中有日期类型时</h2>
+                <pre><code class="language-java">@DateTimeFormat(pattern=&quot;yyyy-MM-dd&quot;)
+private Date goodsDate;
+@DateTimeFormat注解可以将字符串格式的日期进行Date类型的转换
+</code></pre>
+                <pre><code class="language-html">&lt;form action=&quot;${pageContext.request.contextPath }/date/demo01.do&quot; method=&quot;post&quot;&gt;
+    	商品名称:&lt;input name=&quot;goodsName&quot;&gt;&lt;br&gt;
+    	商品日期:&lt;input name=&quot;goodsDate&quot;&gt;&lt;br&gt;
+    	&lt;input type=&quot;hidden&quot; name=&quot;goodsId&quot; value=&quot;1&quot;&gt;&lt;br&gt;
+    	&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+
+</code></pre>
+                <h2 id="82-json中日期类型的处理">8.2 JSON中日期类型的处理</h2>
+                <h3 id="821-统一通过配置方式进行处理">8.2.1 统一通过配置方式进行处理</h3>
+                <p>在applicationContext.xml文件中，找到<a href="mvc:annotation-diver/" target="_blank">mvc:annotation-diver/</a>,将他打开，在他下面添加如下的代码</p>
+                <pre><code class="language-xml">&lt;!-- 处理responseBody 里面日期类型 --&gt;
+		&lt;mvc:message-converters&gt;
+			&lt;bean
+				class=&quot;org.springframework.http.converter.json.MappingJackson2HttpMessageConverter&quot;&gt;
+				&lt;property name=&quot;objectMapper&quot;&gt;
+					&lt;bean class=&quot;com.fasterxml.jackson.databind.ObjectMapper&quot;&gt;
+						&lt;property name=&quot;dateFormat&quot;&gt;
+							&lt;bean class=&quot;java.text.SimpleDateFormat&quot;&gt;
+								&lt;constructor-arg type=&quot;java.lang.String&quot; value=&quot;yyyy-MM-dd&quot; /&gt;
+							&lt;/bean&gt;
+						&lt;/property&gt;
+					&lt;/bean&gt;
+				&lt;/property&gt;
+			&lt;/bean&gt;
+		&lt;/mvc:message-converters&gt;
+
+</code></pre>
+                <h3 id="822-使用注解设置格式">8.2.2 使用注解设置格式</h3>
+                <pre><code class="language-java">@JsonFormat(pattern=&quot;yyyy-MM-dd HH:mm:ss&quot;, timezone=&quot;GMT+8&quot;)
+private Date goodsDate;
+</code></pre>
+            </div>
+            <!--标签-->
+            <div CLASS="m-padding-lr m-bg">
+                <div class="cloud m-bg">
+                    <ul>
+                        <li><a href="/tags/1">基础知识</a><a href="/tags/2">学习</a><a href="/tags/14">SpringMVC</a>
+                    </ul>
+                </div>
+            </div>
+            <!--赞赏-->
+            <div class="ui center aligned basic m-bg segment">
+                <button id="payButton" class="ui orange basic circular button">赞赏</button>
+            </div>
+            <div class="ui payMe flowing popup transition hidden m-bg">
+                <div class="ui orange basic label">
+                    <div class="ui images" style="font-size: inherit !important;">
+                        <p style="color: red;font-size: small;text-align:center" class="h6 small">感谢请我吃糖~</p>
+
+                        <div class="image">
+                            <img src="/images/wxpay.png" alt="" class="ui rounded bordered image"
+                                 style="width: 120px">
+                            <div>微信</div>
+                        </div>
+                        <div class="image">
+                            <img src="/images/zfb.jpg" alt="" class="ui rounded bordered image"
+                                 style="width: 120px">
+                            <div>支付宝</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--博客信息-->
+        <div class="ui attached error message m-opacity-mini">
+            <div class="ui grid">
+                <div class="eleven wide column">
+                    <ui class="list">
+                        <li>作者：<span>管理员</span><a class="m-pink" href="/about" target="_blank">（联系作者）</a></li>
+                        <li>发表时间：<span>2020-04-22 04:07</span>
+                        </li>
+                        <li>版权声明：自由转载-非商用-非衍生-保持署名</li>
+                        <li>公众号转载：请在文末添加作者公众号二维码</li>
+                    </ui>
+                </div>
+                <div class="five wide column">
+                    <img src="/images/wx.jpg" alt="" class="ui right floated rounded bordered image"
+                         style="width: 110px">
+                </div>
+            </div>
+        </div>
+        <!--评论区域-->
+        <div class="ui attached bottom segment m-bg">
+            <!--留言区域列表-->
+            <div id="comment-container" class="ui segment m-bg m-top-color">
+                <div>
+                    <div class="ui threaded comments" style="max-width: 100%;">
+                        <h3 class="ui dividing header">评论</h3>
+                        <!--多个评论-->
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!--输入区域-->
+            <div id="comment-form" class="ui  form">
+                <div class="ui animated rotatelnDownLeft error mini message"></div>
+
+
+                <div class="fields">
+                    <input id="inputId" type="hidden" name="blogId" value="1587499308464">
+                    <input type="hidden" name="parentCommentId" value="-1">
+                    <!--表情按钮-->
+                    <div class="field  m-margin-bottom-small m-mobile-wide" data-tooltip="表情未加载完全或点击无响应可刷新页面重试">
+                        <button id="emojiBtn" type="button" class="ui yellow button m-mobile-wide"><i
+                                    class="large smile outline icon"></i>表情
+                        </button>
+                    </div>
+                    <div class="field m-margin-bottom-small m-mobile-wide">
+
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" class="m-bg" name="nickname" placeholder="您的昵称"
+                                   value="">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-wide m-margin-bottom-small">
+                        <div class="ui left icon input">
+                            <i class="mail icon"></i>
+                            <input type="text" class="m-bg" name="email" placeholder="回复提醒会通知此邮箱"
+                                   value="">
+                        </div>
+                    </div>
+                    <div class="field m-mobile-wide m-margin-bottom-small" data-tooltip="点击选择是否开启留言回复提醒">
+                        <div id="open-mail" name="open-mail" class="ui toggle checkbox">
+                            <div style="height:10px"></div>
+                            <input type="checkbox" tabindex="0" class="hidden"/>
+                            <label>回复提醒</label>
+                        </div>
+                    </div>
+                    <div class="field m-margin-bottom-small m-mobile-wide">
+                        <button id="commentpost-btn" type="button" class="ui secondary m-bg-pink button m-mobile-wide">
+                            <i class="edit icon"></i>
+                            发布
+                        </button>
+                    </div>
+                </div>
+                <div class="field">
+                    <div id="commentEditor" class="fields" contenteditable="true"
+                         data-placeholder="邮件地址不会被公开，只会作为回复提醒的联系方式；如果需要回复提醒功能，请输入正确的邮箱..."></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div id="toolbar" class="m-bg animated fadeIn  m-fixed m-right-bottom " style="display: none">
+    <div class="ui vertical icon buttons">
+        <button type="button" class="ui toc secondary m-bg-pink button">目录</button>
+        <a href="#comment-container" class="ui  secondary m-bg-pink button">留言</a>
+        <button type="button" class="ui share   secondary m-bg-pink button">分享</button>
+        <button class="ui wechat icon secondary m-bg-pink button"><i class="big qrcode icon"></i></button>
+        <div id="toTop-button" class="ui secondary m-bg-pink icon button"><i class="chevron up icon"></i></div>
+    </div>
+</div>
+
+<div class="ui toc-container flowing popup transition hidden" style="width: 250px!important;">
+    <ol class="js-toc">
+    </ol>
+
+</div>
+<!--点击分享弹出框-->
+<div class="ui share-container flowing popup transition hidden" style="width: 240px!important;">
+    <div class="ui bottom attached segment">
+        <button title="点击分享微博" onclick="sinaWeiBo()" class="ui weibo circular icon button"><i
+                    class="red weibo icon"></i></button>
+        <button title="点击分享微信" onclick="shareWeiXin()" class="ui wechat circular icon button"><i
+                    class="green weixin icon"></i></button>
+        <button title="点击分享QQ好友" onclick="shareQQ()" class="ui qq circular icon button"><i class="blue qq icon"></i>
+        </button>
+
+        <button title="点击分享QQ空间" onclick="shareQQZone()" class="ui qqZone circular icon button"><i
+                    class="yellow share icon"></i></button>
+    </div>
+</div>
+<div id="qrcode" class="ui wechat-qr flowing popup transition hidden " style="width: 130px !important;">
+    <p style="color: red;font-size: small;text-align:center" class="h6 small">手机扫码阅读本文</p>
+    <!--    <img src="./static/images/wx.jpg" alt="" class="ui rounded image" style="width: 120px !important;">-->
+</div>
+<input type="hidden" id="blogTitle" value="springMVC">
+<input type="hidden" id="firstPicture" value="http://cdn.sakurac.cn/blog8.jpg">
+<input type="hidden" id="blogId" value="1587499308464">
+
+<br>
+<br>
+<br>
+
+
+<!--  底部-->
+<div class="footerPage"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+<script src="./lib/prism/prism.js"></script>
+<script src="./lib/tocbot/tocbot.min.js"></script>
+<script src="./lib/qrcode/qrcode.js"></script>
+<script src="./lib/waypoints/jquery.waypoints.js"></script>
+<script src="./lib/editormd/editormd.min.js"></script>
+<script src="./js/common.js"></script>
+<script>
+    /*滚动侦测*/
+    var waypoint = new Waypoint({
+        element: document.getElementById('waypoint'),
+        handler: function (direction) {
+            if (direction == 'down') {
+                $('#toolbar').show();
+                $('#music').show();
+            } else {
+                $('#toolbar').hide();
+                $('#music').hide();
+            }
+            console.log('Scrolled to waypoint!  ' + direction);
+        }
+    })
+    /*加载emoji表情*/
+    onload = function () {
+        $("#commentEditor").emoji({
+            button: "#emojiBtn",  //评论表情
+            showTab: false,
+            animation: 'slide',
+            basePath: '/images/emoji',
+            icons: emojiLists
+        });
+
+        $("#commentText").emojiParse({
+            basePath: '/images/emoji',
+            icons: emojiLists
+        });
+    };
+    /*导航手机端适配*/
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    /*赞赏弹窗*/
+    $('#payButton').popup({
+        popup: $('.payMe.popup'),
+        on: 'hover',
+        position: 'bottom center'
+    });
+
+    /*目录初始化*/
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.js-toc-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+    /*目录弹窗*/
+    $('.toc.button').popup({
+        popup: $('.toc-container'),
+        on: 'click',
+        position: 'left center'
+    });
+    /*微信弹窗*/
+    $('.wechat').popup({
+        popup: $('.wechat-qr'),
+        position: 'left center'
+    });
+    //消息提示关闭初始化
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
+    /*链接二维码*/
+    var serurl = "http://47.94.235.49";
+
+    var url = document.getElementById("inputId").value;//获取输入框元素
+    var qrcode = new QRCode("qrcode", {
+        text: serurl + "/blog/" + url,//二维码链接
+        width: 130,
+        height: 130,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
+    /*回到顶部*/
+    $('#toTop-button').click(function () {
+        $(window).scrollTo(0, 700);
+    });
+
+
+    //评论表单验证
+    $('.ui.form').form({
+        fields: {
+            content: {
+                identifier: 'nickname',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入你的大名'
+                }]
+            },
+            type: {
+                identifier: 'email',
+                rules: [{
+                    type: 'email',
+                    prompt: '请填写正确的邮箱地址'
+                }]
+            }
+        }
+    });
+    $(function () {
+        //确认
+        $('#btn_ok1').click(function () {
+            $('#window1').attr('hidden', 'hidden');
+        });
+        $('#btn_ok2').click(function () {
+            $('#window2').attr('hidden', 'hidden');
+        });
+    });
+    $('.ui.checkbox').checkbox();
+
+    /*监听指定元素的class属性*/
+    $(document).ready(function () {
+        var targetNode = document.getElementById('open-mail');//获取监听元素
+        var config = {attributes: true};
+        var callback = function (mutationsList) {
+            for (var mutation of mutationsList) {
+                if (mutation.type == 'attributes') {
+                    if ($(targetNode).hasClass("checked")) {//当class属性改变时触发事件
+                        $('#window2').removeAttr('hidden');
+                    }
+                }
+            }
+        };
+        var observer = new MutationObserver(callback);
+        observer.observe(targetNode, config);
+    });
+
+
+    $('#commentpost-btn').click(function () {
+        var boo = $('.ui.form').form('validate form');
+        var text = document.getElementById("commentEditor").innerHTML;
+        if (boo && text != "") {
+            console.log('校验成功');
+            postData();
+        } else if (text == "") {
+            console.log('留言数据校验不通过');
+            $('#window1').removeAttr('hidden');
+            return;
+        }
+
+
+    });
+
+    $(function () {
+        localStorage.setItem("blogFirstPicture", document.getElementById("firstPicture").value);
+        localStorage.setItem("blogTitle", document.getElementById("blogTitle").value);
+        localStorage.setItem("blogId", document.getElementById("blogId").value);
+
+    });
+
+
+    function postData() {
+        var url = '/comments';
+        console.log(url);
+        $("#comment-container").load(/*/comments/1591456383956*/url, {
+
+            "parentCommentId": $("[name='parentCommentId']").val(),
+            "blogId": $("[name='blogId']").val(),
+            "nickname": $("[name='nickname']").val(),
+            "email": $("[name='email']").val(),
+            "content": document.getElementById("commentEditor").innerHTML,
+            "replyInform": $("[name='open-mail']").hasClass("checked") ? true : false
+        }, function (responseTxt, statusTxt, xhr) {
+//        $(window).scrollTo($('#comment-container'),500);
+            console.log('推出postData');
+            clearContent();
+        });
+    }
+
+    function reply(obj) {
+        var commentId = $(obj).data('commentid');
+        var commentNickname = $(obj).data('commentnickname');
+        $("[id='commentEditor']").attr("data-placeholder", "@" + commentNickname);
+        $("[name='parentCommentId']").val(commentId);
+        $(window).scrollTo($('#comment-form'), 500);
+    }
+
+    function clearContent() {
+        ;
+        $("[name='parentComment.id']").val(-1);
+        document.getElementById("commentEditor").innerText = '';
+        $("[id='commentEditor']").attr("data-placeholder", "邮件地址不会被公开，只会作为回复提醒的联系方式；如果需要回复提醒功能，请输入正确的邮箱...");
+    }
+
+    /*分享*/
+    $('.share.button').popup({
+        popup: $('.share-container.popup'),
+        on: 'click',
+        position: 'left center'
+
+    });
+    localStorage.setItem("blogFirstPicture", document.getElementById("blogFirstPicture").value);
+    localStorage.setItem("blogTitle", document.getElementById("blogFirstPicture").value + '-Sakura°博客');
+
+    /*QQ分享*/
+    function shareQQ() {
+        var param = {
+            url: 'http://sakurac.cn/blog/' + localStorage.getItem("blogId"),
+            desc: '发现了一篇不错的博客，一起来看看吧~',
+            title: localStorage.getItem("blogTitle") + " from Sakura°博客",
+            summary: '这篇博客内容不错，一起来看看吧！',
+            pics: localStorage.getItem("blogFirstPicture"),
+            //flash : '',
+            sharesource: 'qq',
+            site: 'Sakura°_Blog'
+        };
+        var s = [];
+        for (var i in param) {
+            s.push(i + '=' + encodeURIComponent(param[i] || ''));
+        }
+        var targetUrl = "https://connect.qq.com/widget/shareqq/iframe_index.html?" + s.join('&');
+        // var targetUrl = "http://connect.qq.com/widget/shareqq/index.html?" + s.join('&') ;
+        //window.location.href=targetUrl;
+        window.open(targetUrl, 'qq', 'height=800, width=800');
+    }
+
+    /*分享QQ空间*/
+    function shareQQZone() {
+        var param = {
+            url: window.location.href,
+            sharesource: 'qzone',
+            title: localStorage.getItem("blogTitle") + " from Sakura°博客",
+            summary: '这篇博客内容不错，一起来看看吧！',
+            pics: localStorage.getItem("blogFirstPicture"),
+        };
+        var s = [];
+        for (var i in param) {
+            s.push(i + '=' + encodeURIComponent(param[i] || ''));
+        }
+        var targetUrl = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s.join('&');
+        //window.location.href=targetUrl;
+        window.open(targetUrl, 'qqZone', 'height=800, width=800');
+    }
+
+    /**
+     * 微信分享
+     * @return {[type]} [description]
+     */
+    function shareWeiXin() {
+        var url = window.location.href,
+            encodePath = encodeURIComponent(url),
+            targetUrl = 'http://qr.liantu.com/api.php?text=' + encodePath;
+        window.open(targetUrl, 'weixin', 'height=400, width=400');
+    }
+
+    /**
+     * 分享新浪微博
+     * @param  {[type]} title [分享标题]
+     * @param  {[type]} url   [分享url链接，默认当前页面]
+     * @param  {[type]} pic   [分享图片]
+     * @return {[type]}       [description]
+     */
+    function sinaWeiBo() {
+        var param = {
+            url: window.location.href,
+            type: '3',
+            count: '1', /** 是否显示分享数，1显示(可选)*/
+            appkey: '', /** 您申请的应用appkey,显示分享来源(可选)*/
+            title: localStorage.getItem("blogTitle") + " from Sakura°博客", /** 分享的文字内容(可选，默认为所在页面的title)*/
+            pic: localStorage.getItem("blogFirstPicture"), /**分享图片的路径(可选)*/
+            ralateUid: '', /**关联用户的UID，分享微博会@该用户(可选)*/
+            rnd: new Date().valueOf()
+        }
+        var temp = [];
+        for (var p in param) {
+            temp.push(p + '=' + encodeURIComponent(param[p] || ''))
+        }
+        var targetUrl = 'http://service.weibo.com/share/share.php?' + temp.join('&');
+        //window.open(targetUrl, 'sinaweibo', 'height=430, width=400');
+        window.location.href = targetUrl;
+    }
+</script>
+</body>
+</html>
