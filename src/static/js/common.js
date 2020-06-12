@@ -1,2 +1,2 @@
-$(".headerPage").load("header.html");
-$(".footerPage").load("footer.html");
+$(".headerPage").load("/header");
+$(".footerPage").load("/footer");

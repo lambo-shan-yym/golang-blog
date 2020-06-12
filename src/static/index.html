@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="./css/alert_window.css"/>
+    <link rel="stylesheet" href="/static/css/alert_window.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <!--文章排版-->
-    <link rel="stylesheet" href="./css/typo.css">
+    <link rel="stylesheet" href="/static/css/typo.css">
     <!--动态效果-->
-    <link rel="stylesheet" href="./css/animate.css">
-    <link rel="stylesheet" href="./lib/prism/prism.css">
-    <link rel="stylesheet" href="./lib/tocbot/tocbot.css">
-    <link rel="stylesheet" href="./css/me.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <link rel="stylesheet" href="/static/lib/prism/prism.css">
+    <link rel="stylesheet" href="/static/lib/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/static/css/me.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"
-          src="./lib/live2d-widget/waifu.css">
+          src="/static/lib/live2d-widget/waifu.css">
 </head>
 <body>
 <!--导航-->
-<div class="headerPage"></div>
-
+<!--<div class="headerPage"></div>-->
+{{ template "header"}}
 <!--中间内容-->
 <a href="#" class="cd-top faa-float animated cd-is-visible cd-fade-out" style="top: -260px;"></a>
 <div id="waypoint" class="m-container-big m-padding-tb-big animated fadeInUp">
@@ -58,7 +58,7 @@
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
                                             <div class="item">
-                                                <img src="./images/admin_header.jpg" alt=""
+                                                <img src="/static/images/admin_header.jpg" alt=""
                                                      class="ui avatar image">
                                                 <div class="content"><a href="/about" style="color: #2E64FE!important;"
                                                                         class="header m-pink">管理员</a></div>
@@ -113,7 +113,7 @@
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
                                             <div class="item">
-                                                <img src="./images/admin_header.jpg" alt=""
+                                                <img src="/static/images/admin_header.jpg" alt=""
                                                      class="ui avatar image">
                                                 <div class="content"><a href="/about" style="color: #2E64FE!important;"
                                                                         class="header m-pink">管理员</a></div>
@@ -166,7 +166,7 @@
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
                                             <div class="item">
-                                                <img src="./images/admin_header.jpg" alt=""
+                                                <img src="/static/images/admin_header.jpg" alt=""
                                                      class="ui avatar image">
                                                 <div class="content"><a href="/about" style="color: #2E64FE!important;"
                                                                         class="header m-pink">管理员</a></div>
@@ -224,7 +224,7 @@
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
                                             <div class="item">
-                                                <img src="./images/admin_header.jpg" alt=""
+                                                <img src="/static/images/admin_header.jpg" alt=""
                                                      class="ui avatar image">
                                                 <div class="content"><a href="/about" style="color: #2E64FE!important;"
                                                                         class="header m-pink">管理员</a></div>
@@ -278,7 +278,7 @@
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
                                             <div class="item">
-                                                <img src="./images/admin_header.jpg" alt=""
+                                                <img src="/static/images/admin_header.jpg" alt=""
                                                      class="ui avatar image">
                                                 <div class="content"><a href="/about" style="color: #2E64FE!important;"
                                                                         class="header m-pink">管理员</a></div>
@@ -334,7 +334,7 @@
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
                                             <div class="item">
-                                                <img src="./images/admin_header.jpg" alt=""
+                                                <img src="/static/images/admin_header.jpg" alt=""
                                                      class="ui avatar image">
                                                 <div class="content"><a href="/about" style="color: #2E64FE!important;"
                                                                         class="header m-pink">管理员</a></div>
@@ -385,7 +385,7 @@
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
                                             <div class="item">
-                                                <img src="./images/admin_header.jpg" alt=""
+                                                <img src="/static/images/admin_header.jpg" alt=""
                                                      class="ui avatar image">
                                                 <div class="content"><a href="/about" style="color: #2E64FE!important;"
                                                                         class="header m-pink">管理员</a></div>
@@ -436,7 +436,7 @@
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
                                             <div class="item">
-                                                <img src="./images/admin_header.jpg" alt=""
+                                                <img src="/static/images/admin_header.jpg" alt=""
                                                      class="ui avatar image">
                                                 <div class="content"><a href="/about" style="color: #2E64FE!important;"
                                                                         class="header m-pink">管理员</a></div>
@@ -488,7 +488,7 @@
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
                                             <div class="item">
-                                                <img src="./images/admin_header.jpg" alt=""
+                                                <img src="/static/images/admin_header.jpg" alt=""
                                                      class="ui avatar image">
                                                 <div class="content"><a href="/about" style="color: #ffa2a2!important;"
                                                                         class="header m-pink">管理员</a></div>
@@ -540,7 +540,7 @@
                                     <div class="eleven wide column">
                                         <div class="ui mini horizontal link list">
                                             <div class="item">
-                                                <img src="./images/admin_header.jpg" alt=""
+                                                <img src="/static/images/admin_header.jpg" alt=""
                                                      class="ui avatar image">
                                                 <div class="content"><a href="/about" style="color: #ffa2a2!important;"
                                                                         class="header m-pink">管理员</a></div>
@@ -784,7 +784,7 @@
                 <!--二维码-->
                 <h4 class="ui m-bg horizontal divider header m-margin-top-large">扫码加好友</h4>
                 <div class="ui m-bg centered card" style="width: 11em">
-                    <img src="./images/wx.png" alt="" class="ui m-bg rounded image">
+                    <img src="/static/images/wx.png" alt="" class="ui m-bg rounded image">
                 </div>
             </div>
         </div>
@@ -802,18 +802,19 @@
 
 
 <!-- 尾部-->
-<div class="footerPage"></div>
+{{ template "footer"}}
+<!--<div class="footerPage"></div>-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
-<script src="./lib/prism/prism.js"></script>
-<script src="./lib/tocbot/tocbot.min.js"></script>
-<script src="./lib/qrcode/qrcode.js"></script>
-<script src="./lib/waypoints/jquery.waypoints.js"></script>
-<script src="./lib/editormd/editormd.min.js"></script>
-<script src="./js/weather.js"></script>
-<script src="./js/search.js"></script>
-<script src="./js/common.js"></script>
+<script src="/static/lib/prism/prism.js"></script>
+<script src="/static/lib/tocbot/tocbot.min.js"></script>
+<script src="/static/lib/qrcode/qrcode.js"></script>
+<script src="/static/lib/waypoints/jquery.waypoints.js"></script>
+<script src="/static/lib/editormd/editormd.min.js"></script>
+<script src="/static/js/weather.js"></script>
+<script src="/static/js/search.js"></script>
+
 
 
 </body>
