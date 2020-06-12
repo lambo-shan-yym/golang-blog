@@ -5,24 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="./css/alert_window.css"/>
+    <link rel="stylesheet" href="/static/css/alert_window.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <!--文章排版-->
-    <link rel="stylesheet" href="./css/typo.css">
+    <link rel="stylesheet" href="/static/css/typo.css">
     <!--动态效果-->
-    <link rel="stylesheet" href="./css/animate.css">
-    <link rel="stylesheet" href="./lib/prism/prism.css">
-    <link rel="stylesheet" href="./lib/tocbot/tocbot.css">
-    <link rel="stylesheet" href="./css/me.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <link rel="stylesheet" href="/static/lib/prism/prism.css">
+    <link rel="stylesheet" href="/static/lib/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/static/css/me.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"
-          src="./lib/live2d-widget/waifu.css">
+          src="/static/lib/live2d-widget/waifu.css">
 
 
 </head>
 <body>
 <!--导航-->
-<div class="headerPage"></div>
+{{ template "header"}}
 
 
 
@@ -611,7 +611,7 @@ private Date goodsDate;
 </div>
 <div id="qrcode" class="ui wechat-qr flowing popup transition hidden " style="width: 130px !important;">
     <p style="color: red;font-size: small;text-align:center" class="h6 small">手机扫码阅读本文</p>
-    <!--    <img src="./static/images/wx.jpg" alt="" class="ui rounded image" style="width: 120px !important;">-->
+    <!--    <img src="/static/static/images/wx.jpg" alt="" class="ui rounded image" style="width: 120px !important;">-->
 </div>
 <input type="hidden" id="blogTitle" value="springMVC">
 <input type="hidden" id="firstPicture" value="http://cdn.sakurac.cn/blog8.jpg">
@@ -623,17 +623,17 @@ private Date goodsDate;
 
 
 <!--  底部-->
-<div class="footerPage"></div>
+{{ template "footer"}}
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
-<script src="./lib/prism/prism.js"></script>
-<script src="./lib/tocbot/tocbot.min.js"></script>
-<script src="./lib/qrcode/qrcode.js"></script>
-<script src="./lib/waypoints/jquery.waypoints.js"></script>
-<script src="./lib/editormd/editormd.min.js"></script>
-<script src="./js/common.js"></script>
+<script src="/static/lib/prism/prism.js"></script>
+<script src="/static/lib/tocbot/tocbot.min.js"></script>
+<script src="/static/lib/qrcode/qrcode.js"></script>
+<script src="/static/lib/waypoints/jquery.waypoints.js"></script>
+<script src="/static/lib/editormd/editormd.min.js"></script>
+<script src="/static/js/common.js"></script>
 <script>
     /*滚动侦测*/
     var waypoint = new Waypoint({

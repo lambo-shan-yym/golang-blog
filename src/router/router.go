@@ -24,9 +24,17 @@ func InitRouter() *gin.Engine {
 	r.GET("/index", htmlController.IndexHtml)
 	r.GET("/header", htmlController.HeaderHtml)
 	r.GET("/footer", htmlController.FooterHtml)
+
+	r.GET("/about", htmlController.AboutHtml)
+	r.GET("/blog", htmlController.BlogHtml)
+	r.GET("/search", htmlController.SearchHtml)
+	r.GET("/tags", htmlController.TagsHtml)
+	r.GET("/types", htmlController.TypesHtml)
+	r.GET("/friend", htmlController.FriendHtml)
+	r.GET("/archives", htmlController.ArchivesHtml)
 	blogGroup := r.Group("/blog")
 	blogGroup.POST("/add", blogController.AddBlog)
-	r.Static("/static", "./src/static")
+	r.Static("/static/", "./src/static/")
 	return r
 }
 
