@@ -27,6 +27,8 @@ var (
 	CreateTokenFail = NewException(http.StatusOK, 200411, "token生成失败")
 	TokenExpired    = NewException(http.StatusUnauthorized, 200412, "授权已过期")
 	SystemException = NewException(http.StatusInternalServerError, 200501, "系统异常:%s")
+	DataHadExistInDb =NewException(http.StatusConflict,200409,"数据已存在")
+	DataNotExistInDb =NewException(http.StatusNotFound,200413,"数据不存在")
 )
 
 func (e *Exception) Error() string {

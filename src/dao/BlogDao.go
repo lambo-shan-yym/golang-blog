@@ -30,8 +30,34 @@ func (b *BlogDao) DeleteBlogById(blogId int64) (int64, error) {
 	return affected, err
 }
 
-func (b *BlogDao) GetOneById(blogId int64, pushType int32) (*model.Blog, error) {
+func (b *BlogDao) GetOneById(blogId int64, publishType int32) (*model.Blog, error) {
 	blog := &model.Blog{}
-	_, err := b.engine.ID(blogId).Get(blog)
+	_, err := b.engine.ID(blogId).Where("publish_type = ?",publishType).Get(blog)
 	return blog, err
+}
+
+func (b *BlogDao) FindBlogs(offset, limit int, publishType int32) ([]*model.Blog, error) {
+	var blogs [] *model.Blog
+	error := b.engine.Where("publish_type = ?",publishType).OrderBy(" create_time desc").Limit(limit, offset).Find(&blogs)
+	return blogs, error
+}
+
+func (b *BlogDao) Count(publishType int32) (int64, error) {
+	condition := model.Blog{}
+	condition.PublishType = publishType
+	count, error := b.engine.Count(&condition)
+	return count, error
+}
+
+func (b *BlogDao) FindClickTop10Blogs( publishType int32) ([]*model.Blog, error) {
+	var blogs [] *model.Blog
+	error := b.engine.Where("publish_type = ?",publishType).OrderBy("view_count desc").Limit(10, 0).Find(&blogs)
+	return blogs, error
+}
+
+
+func (b *BlogDao) FindNewRecommendBlogs( publishType int32) ([]*model.Blog, error) {
+	var blogs [] *model.Blog
+	error := b.engine.Where("publish_type = ?",publishType).OrderBy("update_time desc").Limit(10, 0).Find(&blogs)
+	return blogs, error
 }

@@ -30,8 +30,22 @@ func (b *TagDao) DeleteTagById(blogId int64) (int64, error) {
 	return affected, err
 }
 
-func (b *TagDao) GetOneById(blogId int64, pushType int32) (*model.Tag, error) {
-	blog := &model.Tag{}
-	_, err := b.engine.ID(blogId).Get(blog)
-	return blog, err
+func (b *TagDao) GetOneById(blogId int64) (*model.Tag, error) {
+	tag := &model.Tag{}
+	_, err := b.engine.ID(blogId).Get(tag)
+	return tag, err
+}
+
+
+
+func (b *TagDao) FindTypes(offset, limit int) ([]*model.Tag, error) {
+	var tags [] *model.Tag
+	error := b.engine.Limit(limit, offset).Find(&tags)
+	return tags, error
+}
+
+func (b *TagDao) Count() (int64, error) {
+	condition := model.Tag{}
+	count, error := b.engine.Count(&condition)
+	return count, error
 }

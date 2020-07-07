@@ -8,12 +8,23 @@ import (
 )
 
 var blogController controller.BlogController
+var typeController controller.TypeController
+var tagController controller.TagController
 var htmlController controller.HtmlController
 
 func init() {
 	blogService := service.NewBlogServiceImpl()
 	blogController = controller.BlogController{BlogService: blogService}
+
+	typeService := service.NewTypeServiceImpl()
+	typeController = controller.TypeController{TypeService:typeService }
+
+	tagService := service.NewTagServiceImpl()
+	tagController = controller.TagController{TagService:tagService }
+
 	htmlController = controller.HtmlController{}
+	htmlController.BlogService = blogService
+
 }
 func InitRouter() *gin.Engine {
 	r := gin.Default()
@@ -32,8 +43,30 @@ func InitRouter() *gin.Engine {
 	r.GET("/types", htmlController.TypesHtml)
 	r.GET("/friend", htmlController.FriendHtml)
 	r.GET("/archives", htmlController.ArchivesHtml)
+
+
+	typeGroup :=r.Group("/type")
+	typeGroup.POST("/add",typeController.AddType)
+	typeGroup.PUT("/update",typeController.UpdateType)
+	typeGroup.DELETE("/delete", typeController.DeleteType)
+	typeGroup.GET("/get", typeController.GetType)
+	typeGroup.POST("/find", typeController.FindTypes)
+
+
+	tagGroup :=r.Group("/tag")
+	tagGroup.POST("/add",tagController.AddTag)
+	tagGroup.PUT("/update",tagController.UpdateTag)
+	tagGroup.DELETE("/delete", tagController.DeleteTag)
+	tagGroup.GET("/get", tagController.GetTag)
+	tagGroup.POST("/find", tagController.FindTags)
+
 	blogGroup := r.Group("/blog")
 	blogGroup.POST("/add", blogController.AddBlog)
+	blogGroup.POST("/get", blogController.GetBlog)
+	blogGroup.POST("/find", blogController.FindBlogs)
+	blogGroup.POST("/find_for_time", blogController.FindBlogsForTime)
+	blogGroup.GET("/find_click_top_10", blogController.FindClickTop10Blogs)
+	blogGroup.GET("/find_new_recommend", blogController.FindNewRecommendBlogs)
 	r.Static("/static/", "./src/static/")
 	return r
 }

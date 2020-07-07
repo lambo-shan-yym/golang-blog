@@ -2,6 +2,7 @@ package service
 
 import (
 	"golang-blog/src/common/datasource"
+	"golang-blog/src/common/error"
 	"golang-blog/src/dao"
 	"golang-blog/src/model"
 	"time"
@@ -11,7 +12,17 @@ type IBlogService interface {
 	Add(blog *model.Blog) error
 	Update(blogId int64, blog *model.Blog) int64
 	Delete(blogId int64) int64
-	GetOneById(blogId int64, pushType int32) *model.Blog
+	GetOneById(blogId int64, publishType int32) *model.Blog
+
+	FindBlogs(offset int, limit int, publishType int32) []*model.Blog
+
+	CountBlogs(publishType int32) int64
+
+	FindClickTop10Blogs(publishType int32) []*model.Blog
+
+	FindNewRecommendBlogs(publishType int32) []*model.Blog
+
+	CheckBlogIsExist(id int64, publishType int32) *model.Blog
 }
 
 type BlogServiceImpl struct {
@@ -50,10 +61,66 @@ func (b *BlogServiceImpl) Delete(blogId int64) int64 {
 	return affected
 }
 
-func (b *BlogServiceImpl) GetOneById(blogId int64, pushType int32) *model.Blog {
-	blog, err := b.dao.GetOneById(blogId, pushType)
+
+
+func (b *BlogServiceImpl) FindBlogs(offset int, limit int, publishType int32) []*model.Blog {
+	blogs, err := b.dao.FindBlogs(offset, limit, publishType)
+	if err != nil {
+		// todo
+	}
+	if blogs == nil {
+		return make([]*model.Blog, 0)
+	}
+	return blogs
+}
+
+func (b *BlogServiceImpl) CountBlogs(publishType int32) int64 {
+	count, err := b.dao.Count(publishType)
+	if err != nil {
+		// todo
+	}
+	return count
+}
+
+
+func (b *BlogServiceImpl)FindClickTop10Blogs(publishType int32) []*model.Blog{
+	blogs, err := b.dao.FindClickTop10Blogs(publishType)
+	if err != nil {
+		// todo
+	}
+	if blogs == nil {
+		return make([]*model.Blog, 0)
+	}
+	return blogs
+}
+
+
+
+func (b *BlogServiceImpl)FindNewRecommendBlogs(publishType int32) []*model.Blog{
+	blogs, err := b.dao.FindNewRecommendBlogs(publishType)
+	if err != nil {
+		// todo
+	}
+	if blogs == nil {
+		return make([]*model.Blog, 0)
+	}
+	return blogs
+}
+
+func (b *BlogServiceImpl) CheckBlogIsExist(id int64, publishType int32) *model.Blog  {
+	blogRecord := b.GetOneById(id, publishType)
+	if blogRecord == nil {
+		panic(code.DataNotExistInDb)
+	}
+	return blogRecord
+}
+
+
+func (b *BlogServiceImpl) GetOneById(blogId int64, publishType int32) *model.Blog {
+	blog, err := b.dao.GetOneById(blogId,publishType)
 	if err != nil {
 		// todo
 	}
 	return blog
 }
+
